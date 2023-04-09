@@ -7,6 +7,7 @@ import { AppProvider } from "./context/ProductContext";
 import { FilterContextProvider } from "./context/filter_context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <AppProvider>
     <FilterContextProvider>
