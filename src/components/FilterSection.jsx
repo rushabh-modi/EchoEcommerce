@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import React from "react";
 import styled from "styled-components";
@@ -5,9 +6,23 @@ import { useFilterContext } from "../context/filter_context";
 
 const FilterSection = () => {
   const {
-    filters: { text },
+    filters: { text, category },
+    all_products,
     updateFilterValue,
   } = useFilterContext();
+
+  //to set category filteration
+  const getUniqueData = (data, property) => {
+    let newVal = data.map((curElem) => {
+      return curElem[property];
+    });
+    return (newVal = ["all", ...new Set(newVal)]);
+    // console.log(newVal);
+  };
+
+  const categoryOnlyData = getUniqueData(all_products, "category");
+
+  const companyData = getUniqueData(all_products, "company");
 
   return (
     <Wrapper>
@@ -17,10 +32,52 @@ const FilterSection = () => {
             type="text"
             name="text"
             value={text}
-            autocomplete="off"
+            autoComplete="off"
             onChange={updateFilterValue}
+            placeholder="SEARCH"
           />
         </form>
+      </div>
+
+      <div className="filter-category">
+        <h3>Category</h3>
+        <div>
+          {categoryOnlyData.map((curElem, index) => {
+            return (
+              <button
+                key={index}
+                type="button"
+                name="category"
+                value={curElem}
+                className={curElem === category ? "active" : ""}
+                onClick={updateFilterValue}
+              >
+                {curElem}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="filter-company">
+          <h3>Company</h3>
+
+          <form action="#">
+            <select
+              name="company"
+              id="company"
+              className="filter-company--select"
+              onClick={updateFilterValue}
+            >
+              {companyData.map((curElem, index) => {
+                return (
+                  <option key={index} value={curElem} name="company">
+                    {curElem}
+                  </option>
+                );
+              })}
+            </select>
+          </form>
+        </div>
       </div>
     </Wrapper>
   );
@@ -47,6 +104,9 @@ const Wrapper = styled.section`
       flex-direction: column;
       align-items: flex-start;
       gap: 1.4rem;
+      h3 {
+        padding: 5rem 0px 1px;
+      }
       button {
         border: none;
         background-color: ${({ theme }) => theme.colors.white};

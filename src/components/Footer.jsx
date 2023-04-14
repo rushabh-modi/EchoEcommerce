@@ -23,7 +23,15 @@ const Footer = () => {
 
             <div>
               <Button className="btn hireme-btn">
-                <NavLink to="/"> Get Started </NavLink>
+                <NavLink
+                  to="/contact"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                  }}
+                >
+                  {" "}
+                  Get Started{" "}
+                </NavLink>
               </Button>
             </div>
           </div>
