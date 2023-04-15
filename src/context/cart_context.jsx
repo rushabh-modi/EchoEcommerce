@@ -17,7 +17,7 @@ const initialState = {
   //   cart: [],
   cart: getLocalCartData(),
   total_item: "",
-  total_amount: "",
+  total_price: "",
   shipping_fee: 50000,
 };
 
@@ -50,6 +50,7 @@ const CartProvider = ({ children }) => {
   //get vs set
 
   useEffect(() => {
+    dispatch({ type: "CART_ITEM_PRICE_TOTAL" });
     localStorage.setItem("LSCart", JSON.stringify(state.cart));
   }, [state.cart]);
 
