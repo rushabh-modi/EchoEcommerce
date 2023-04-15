@@ -6,7 +6,7 @@ import {BiLeftArrowAlt} from "react-icons/bi"
 const PageNavigation = ({ title }) => {
   return (
     <Wrapper>
-      <NavLink to="/"><BiLeftArrowAlt />Home</NavLink>/{title}
+      <NavLink to="/products"><BiLeftArrowAlt />Products</NavLink>/{title}
     </Wrapper>
   );
 };

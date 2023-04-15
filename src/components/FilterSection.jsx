@@ -1,27 +1,27 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
+import FormatPrice from "../helpers/FormatPrice";
+import { Button } from "../styles/Button";
 
 const FilterSection = () => {
   const {
-    filters: { text, category },
-    all_products,
+    filters: { text, category, price, maxPrice, minPrice },
     updateFilterValue,
+    all_products,
+    clearFilters,
   } = useFilterContext();
 
-  //to set category filteration
-  const getUniqueData = (data, property) => {
+  // get the unique values of each property
+  const getUniqueData = (data, attr) => {
     let newVal = data.map((curElem) => {
-      return curElem[property];
+      return curElem[attr];
     });
+
     return (newVal = ["all", ...new Set(newVal)]);
-    // console.log(newVal);
   };
 
-  const categoryOnlyData = getUniqueData(all_products, "category");
-
+  // we need to have the individual data of each in an array format
+  const categoryData = getUniqueData(all_products, "category");
   const companyData = getUniqueData(all_products, "company");
 
   return (
@@ -31,10 +31,10 @@ const FilterSection = () => {
           <input
             type="text"
             name="text"
-            value={text}
+            placeholder="Search"
             autoComplete="off"
+            value={text}
             onChange={updateFilterValue}
-            placeholder="SEARCH"
           />
         </form>
       </div>
@@ -42,7 +42,7 @@ const FilterSection = () => {
       <div className="filter-category">
         <h3>Category</h3>
         <div>
-          {categoryOnlyData.map((curElem, index) => {
+          {categoryData.map((curElem, index) => {
             return (
               <button
                 key={index}
@@ -50,34 +50,53 @@ const FilterSection = () => {
                 name="category"
                 value={curElem}
                 className={curElem === category ? "active" : ""}
-                onClick={updateFilterValue}
-              >
+                onClick={updateFilterValue}>
                 {curElem}
               </button>
             );
           })}
         </div>
+      </div>
 
-        <div className="filter-company">
-          <h3>Company</h3>
+      <div className="filter-company">
+        <h3>Company</h3>
 
-          <form action="#">
-            <select
-              name="company"
-              id="company"
-              className="filter-company--select"
-              onClick={updateFilterValue}
-            >
-              {companyData.map((curElem, index) => {
-                return (
-                  <option key={index} value={curElem} name="company">
-                    {curElem}
-                  </option>
-                );
-              })}
-            </select>
-          </form>
-        </div>
+        <form action="#">
+          <select
+            name="company"
+            id="company"
+            className="filter-company--select"
+            onClick={updateFilterValue}>
+            {companyData.map((curElem, index) => {
+              return (
+                <option key={index} value={curElem} name="company">
+                  {curElem}
+                </option>
+              );
+            })}
+          </select>
+        </form>
+      </div>
+
+      <div className="filter_price">
+        <h3>Price</h3>
+        <p>
+          <FormatPrice price={price} />
+        </p>
+        <input
+          type="range"
+          name="price"
+          min={minPrice}
+          max={maxPrice}
+          value={price}
+          onChange={updateFilterValue}
+        />
+      </div>
+
+      <div className="filter-clear">
+        <Button className="btn" onClick={clearFilters}>
+          Clear Filters
+        </Button>
       </div>
     </Wrapper>
   );
