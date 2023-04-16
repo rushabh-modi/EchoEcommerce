@@ -9,31 +9,31 @@ const Trusted = () => {
           {/* my 1st img  */}
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image2.png"
+              src="images/brand/accusoft.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image3.png"
+              src="images/brand/ati.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image4.png"
+              src="images/brand/amd.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image6.png"
+              src="images/brand/unity.png"
               alt="trusted-brands"
             />
           </div>
           <div className="slide">
             <img
-              src="https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/image8.png"
+              src="images/brand/icloud.png"
               alt="trusted-brands"
             />
           </div>
@@ -61,6 +61,7 @@ const Wrapper = styled.section`
   img {
     min-width: 10rem;
     height: 10rem;
+    margin-top: 2rem;
   }
 
   .brand-section-slider {
