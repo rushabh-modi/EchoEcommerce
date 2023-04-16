@@ -118,6 +118,7 @@ ${"" /* resuable code section  */}
     }
 
      .intro-data {
+      font-size: 2rem;
       margin-bottom: 0;
       text-transform: uppercase;
       color: #5138ee;
