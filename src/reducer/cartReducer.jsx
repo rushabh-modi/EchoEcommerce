@@ -106,6 +106,7 @@ const cartReducer = (state, action) => {
     };
   }
 
+  //Mobile-fix ->  reduce(state.cart) can't be null(0) => conditioned that it is greater than 0
   if (action.type === "CART_ITEM_PRICE_TOTAL") {
     let total_item = 0;
     let total_price = 0;
