@@ -9,6 +9,8 @@ const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
 
+
+  //Mobile cart fixed length cant be defined null
   if (!cart || cart.length === 0) {
     return (
       <EmptyDiv>
