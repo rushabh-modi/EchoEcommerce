@@ -9,7 +9,7 @@ const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
 
-  if (cart.length === 0) {
+  if (!cart || cart.length === 0) {
     return (
       <EmptyDiv>
         <h3>No Items in the Cart</h3>
