@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
   font-family: "Work Sans", sans-serif;
 }
 
-
 html {
   font-size: 62.5%;
   /* scroll-behavior: smooth; */
@@ -160,7 +159,7 @@ input, textarea{
 @media (max-width: ${({ theme }) => theme.media.tab}) {
     .container {
     max-width: 130rem;
-    padding: 0 0.8rem;
+    padding: 0 3.2rem;
   }
   }
 
@@ -176,5 +175,4 @@ input, textarea{
           grid-template-columns: 1fr;
         }
     }
-
 `;
