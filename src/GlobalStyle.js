@@ -160,7 +160,7 @@ input, textarea{
 @media (max-width: ${({ theme }) => theme.media.tab}) {
     .container {
     max-width: 130rem;
-    padding: 0 3.2rem;
+    padding: 0 0.8rem;
   }
   }
 
