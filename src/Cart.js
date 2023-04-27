@@ -9,7 +9,6 @@ const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
 
-
   //Mobile cart fixed length cant be defined null
   if (!cart || cart.length === 0) {
     return (
@@ -70,6 +69,9 @@ const Cart = () => {
                 <FormatPrice price={shipping_fee + total_price} />
               </p>
             </div>
+            <NavLink to="/checkout">
+              <Button className="btn-checkout">Proceed to Checkout</Button>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -81,7 +83,7 @@ const EmptyDiv = styled.div`
   display: grid;
   place-items: center;
   height: 50vh;
-  padding: 13rem;
+  padding: 11rem;
 
   h3 {
     font-size: 4.2rem;

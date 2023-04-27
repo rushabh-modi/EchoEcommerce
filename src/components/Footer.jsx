@@ -29,8 +29,7 @@ const Footer = () => {
                     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                   }}
                 >
-                  {" "}
-                  Get Started{" "}
+                  Contact Us
                 </NavLink>
               </Button>
             </div>
@@ -166,7 +165,7 @@ const Wrapper = styled.section`
       gap: 2rem;
 
       div {
-        padding: 1rem;
+        padding: 1rem 1rem 0.6rem;
         border-radius: 50%;
         border: 2px solid ${({ theme }) => theme.colors.white};
 

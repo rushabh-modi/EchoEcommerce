@@ -49,7 +49,7 @@ const Contact = () => {
         referrerPolicy="no-referrer-when-downgrade"
         title="LD College"
       ></iframe>
-
+      
       <div className="container">
         <div className="contact-form">
           <form
@@ -84,7 +84,7 @@ const Contact = () => {
               placeholder="Enter your message"
             ></textarea>
 
-            <input type="submit" value="send" />
+            <input type="submit" value="SEND" />
           </form>
         </div>
       </div>

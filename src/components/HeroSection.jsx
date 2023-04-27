@@ -14,8 +14,10 @@ const HeroSection = ({ myData }) => {
             <p className="intro-data">Welcome to </p>
             <h1> {name} </h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Welcome to EchoEcommerce, your one-stop destination for all your
+              online shopping needs! We offer a wide range of products from
+              various categories including electronics items ranging from
+              Mobiles, Laptops and Accessories
             </p>
             <NavLink to="/products">
               <Button>Shop Now</Button>
@@ -24,7 +26,11 @@ const HeroSection = ({ myData }) => {
           {/* our homepage image */}
           <div className="hero-section-image">
             <figure>
-              <img src="images/homeimage.jpg" alt="hero img" className="img-style" />
+              <img
+                src="images/homeimage.jpg"
+                alt="hero img"
+                className="img-style"
+              />
             </figure>
           </div>
         </div>
