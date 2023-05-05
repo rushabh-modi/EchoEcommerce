@@ -31,11 +31,12 @@ const About = (myData) => {
           <div className="hero-section-image">
             <figure>
               <img
-                src="images/aboutimage.jpg"
-                alt="hero img"
+                src="https://user-images.githubusercontent.com/109070924/236440722-517ea978-90d8-41e4-8415-063e2c1f2d33.jpg"
+                alt="about-img"
                 className="img-style"
               />
             </figure>
+            {/* https://user-images.githubusercontent.com/109070924/236440722-517ea978-90d8-41e4-8415-063e2c1f2d33.jpg */}
           </div>
         </div>
       </div>

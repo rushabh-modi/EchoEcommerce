@@ -27,8 +27,8 @@ const HeroSection = ({ myData }) => {
           <div className="hero-section-image">
             <figure>
               <img
-                src="images/homeimage.jpg"
-                alt="hero img"
+                src="https://user-images.githubusercontent.com/109070924/236439782-57d0637f-c3bb-4589-8106-0f33678ad94d.jpg"
+                alt="home-img"
                 className="img-style"
               />
             </figure>
