@@ -1,40 +1,35 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const Contact = () => {
-  const { isAuthenticated, user } = useAuth0();
+  let [name, setName] = useState("");
+  let [email, setEmail] = useState("");
+  let [message, setMessage] = useState("");
 
-  const Wrapper = styled.section`
-    padding: 9rem 0 5rem 0;
-    text-align: center;
+  function handleForm(e) {
+    e.preventDefault();
+    console.log("Form submitted", name, email, message);
+    const data = {
+      name: name,
+      email: email,
+      message: message,
+    };
 
-    .container {
-      margin-top: 6rem;
-
-      .contact-form {
-        max-width: 50rem;
-        margin: auto;
-
-        .contact-inputs {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-
-          input[type="submit"] {
-            cursor: pointer;
-            transition: all 0.2s;
-
-            &:hover {
-              background-color: ${({ theme }) => theme.colors.white};
-              border: 1px solid ${({ theme }) => theme.colors.btn};
-              color: ${({ theme }) => theme.colors.btn};
-              transform: scale(0.9);
-            }
-          }
-        }
-      }
-    }
-  `;
+    axios({
+      method: "post",
+      url: "https://rushabhmodi25.000webhostapp.com/EchoEcommerce/echo_contact.php",
+      data: data,
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then((res) => {
+        console.log(res);
+        alert("We'll be contacting you soon");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <Wrapper>
@@ -49,41 +44,38 @@ const Contact = () => {
         referrerPolicy="no-referrer-when-downgrade"
         title="LD College"
       ></iframe>
-      
+
       <div className="container">
         <div className="contact-form">
-          <form
-            action="https://formspree.io/f/mgebnrag"
-            method="POST"
-            className="contact-inputs"
-          >
+          <form className="contact-inputs" onSubmit={handleForm}>
             <input
               type="text"
               placeholder="Username"
-              name="username"
-              value={isAuthenticated ? user.name : ""}
+              name="name"
               required
               autoComplete="off"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
             />
-
             <input
               type="email"
-              name="Email"
               placeholder="Email"
-              value={isAuthenticated ? user.email : ""}
-              autoComplete="off"
+              name="email"
               required
+              autoComplete="off"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
-
             <textarea
-              name="Message"
+              placeholder="Enter your message"
+              name="message"
               cols="30"
               rows="10"
               required
               autoComplete="off"
-              placeholder="Enter your message"
-            ></textarea>
-
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+            />
             <input type="submit" value="SEND" />
           </form>
         </div>
@@ -92,4 +84,39 @@ const Contact = () => {
   );
 };
 
+const Wrapper = styled.section`
+  padding: 9rem 0 5rem 0;
+  text-align: center;
+  font-size: 15px;
+
+  .container {
+    margin-top: 6rem;
+
+    .contact-form {
+      max-width: 50rem;
+      margin: auto;
+
+      .contact-inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        input[type="submit"] {
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background-color: ${({ theme }) => theme.colors.white};
+            border: 1px solid ${({ theme }) => theme.colors.btn};
+            color: ${({ theme }) => theme.colors.btn};
+            transform: scale(0.9);
+          }
+        }
+        textarea {
+          resize: none;
+        }
+      }
+    }
+  }
+`;
 export default Contact;
