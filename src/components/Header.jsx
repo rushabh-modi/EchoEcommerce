@@ -6,13 +6,14 @@ import Nav from "./Nav";
 const Header = () => {
   return (
     <MainHeader>
-      <NavLink to="/">
+      <NavLink to="/" className="logo-link">
         <img
-          src="https://user-images.githubusercontent.com/109070924/236442235-9115d45f-b21b-4527-9153-a3d1430cf354.png"
+          src="https://user-images.githubusercontent.com/109070924/236601488-6c60f98a-ad2a-40a9-922a-e6bf7e0d56c6.png"
           alt="icon logo"
         />
+        <h2>EchoEcommerce</h2>
       </NavLink>
-      <h2>EchoEcommerce</h2>
+
       <Nav />
     </MainHeader>
   );
@@ -30,8 +31,14 @@ const MainHeader = styled.header`
     height: 5rem;
   }
   h2 {
-    font-size: 3.5rem;
-    margin-right: 40rem;
+    font-size: 4rem;
+    margin-left: 0.5rem; /* add some space between image and heading */
+    margin-top: 1.5rem;
+    
+  }
+  .logo-link {
+    display: inline-flex;
+    align-items: center;
   }
 `;
 export default Header;
