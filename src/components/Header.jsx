@@ -32,9 +32,7 @@ const MainHeader = styled.header`
   }
   h2 {
     font-size: 4rem;
-    margin-left: 0.5rem; /* add some space between image and heading */
-    margin-top: 1.5rem;
-    
+    margin: 0.5rem 0 0 0.5rem;
   }
   .logo-link {
     display: inline-flex;
