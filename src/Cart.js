@@ -4,10 +4,13 @@ import CartItem from "./components/CartItem";
 import { NavLink } from "react-router-dom";
 import { Button } from "./styles/Button";
 import FormatPrice from "./helpers/FormatPrice";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
   // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
+
+  // Converts INR to USD for Paypal Checkout
 
   //Mobile cart fixed length cant be defined null
   if (!cart || cart.length === 0) {
@@ -69,9 +72,35 @@ const Cart = () => {
                 <FormatPrice price={shipping_fee + total_price} />
               </p>
             </div>
-            <NavLink to="/checkout">
+            {/* <NavLink to="/checkout">
               <Button className="btn-checkout">Proceed to Checkout</Button>
-            </NavLink>
+            </NavLink> */}
+            <PayPalScriptProvider
+              options={{
+                "client-id":
+                  "AYTy3tCf94SiWOyjALTynopIpDuvx--MyCTUm-1pxBX0eRMpK9lTldjXrBnEHZiHmZSkgpu6IgqHKfyG",
+              }}
+            >
+              <PayPalButtons
+                createOrder={(data, actions) => {
+                  return actions.order.create({
+                    purchase_units: [
+                      {
+                        amount: {
+                          value: shipping_fee + total_price,
+                        },
+                      },
+                    ],
+                  });
+                }}
+                onApprove={(data, actions) => {
+                  return actions.order.capture().then((details) => {
+                    const name = details.payer.name.given_name;
+                    alert(`Transaction completed by ${name}`);
+                  });
+                }}
+              />
+            </PayPalScriptProvider>
           </div>
         </div>
       </div>
