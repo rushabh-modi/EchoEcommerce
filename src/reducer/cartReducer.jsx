@@ -8,6 +8,10 @@ const cartReducer = (state, action) => {
 
     //tackele the same existing products that creates a duplicate value in cart page
 
+    if (!state.cart) {
+      state.cart = [];
+    }
+
     let existingProduct = state.cart.find(
       (curItem) => curItem.id === id + color
     );
