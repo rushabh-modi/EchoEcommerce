@@ -25,6 +25,9 @@ const Contact = () => {
       .then((res) => {
         console.log(res);
         alert("We'll be contacting you soon");
+        setName("");
+        setEmail("");
+        setMessage("");
       })
       .catch((err) => {
         console.log(err);
