@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { useFilterContext } from "../context/filter_context";
-import FormatPrice from "../helpers/FormatPrice";
-import { Button } from "../styles/Button";
+import { useFilterContext } from "../../context/filter_context";
+import FormatPrice from "../../helpers/FormatPrice";
+import { Button } from "../../styles/Button";
 
 const FilterSection = () => {
   const {
@@ -50,7 +50,8 @@ const FilterSection = () => {
                 name="category"
                 value={curElem}
                 className={curElem === category ? "active" : ""}
-                onClick={updateFilterValue}>
+                onClick={updateFilterValue}
+              >
                 {curElem}
               </button>
             );
@@ -66,7 +67,8 @@ const FilterSection = () => {
             name="company"
             id="company"
             className="filter-company--select"
-            onClick={updateFilterValue}>
+            onClick={updateFilterValue}
+          >
             {companyData.map((curElem, index) => {
               return (
                 <option key={index} value={curElem} name="company">

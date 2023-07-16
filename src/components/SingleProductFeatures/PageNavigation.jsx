@@ -1,27 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import {BiLeftArrowAlt} from "react-icons/bi"
+import { BiLeftArrowAlt } from "react-icons/bi";
 
 const PageNavigation = ({ title }) => {
   return (
     <Wrapper>
-      <NavLink to="/products"><BiLeftArrowAlt />Products</NavLink>/{title}
+      <NavLink to="/products">
+        <BiLeftArrowAlt className="nav-single" />
+        Products/{title}
+      </NavLink>
+      
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  height: 10rem;
-  background-color: ${({ theme }) => theme.colors.bg};
+  height: 5rem;
+  background-color: #ffffff;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 3.2rem;
+  font-size: 2.2rem;
   padding-left: 1.2rem;
 
   a {
-    font-size: 3.2rem;
+    font-size: 2.2rem;
   }
 `;
 

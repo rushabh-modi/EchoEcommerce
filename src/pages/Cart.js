@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { useCartContext } from "./context/cart_context";
-import CartItem from "./components/CartItem";
+import { useCartContext } from "../context/cart_context";
+import CartItem from "../components/CartFeatures/CartItem";
 import { NavLink } from "react-router-dom";
-import { Button } from "./styles/Button";
-import FormatPrice from "./helpers/FormatPrice";
+import { Button } from "../styles/Button";
+import FormatPrice from "../helpers/FormatPrice";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const Cart = () => {

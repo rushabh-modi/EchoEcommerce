@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
-import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import { useProductContext } from "./context/ProductContext";
-import PageNavigation from "./components/PageNavigation";
-import MyImage from "./components/MyImage";
-import { Container } from "./styles/Container";
-import FormatPrice from "./helpers/FormatPrice";
+import { useProductContext } from "../context/ProductContext";
+import styled from "styled-components";
+import PageNavigation from "../components/SingleProductFeatures/PageNavigation";
+import MyImage from "../components/SingleProductFeatures/MyImage";
+import { Container } from "../styles/Container";
+import FormatPrice from "../helpers/FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
-import Star from "./components/Star";
-import AddToCart from "./components/AddToCart";
+import Star from "../components/SingleProductFeatures/Star";
+import AddToCart from "../components/SingleProductFeatures/AddToCart";
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -110,7 +110,7 @@ const SingleProduct = () => {
 
 const Wrapper = styled.section`
   .container {
-    padding: 9rem 0;
+    padding: 4.5rem 0;
   }
 
   .product_images {

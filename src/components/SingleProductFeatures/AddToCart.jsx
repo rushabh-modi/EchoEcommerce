@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa";
-import CartAmountToggle from "./CartAmountToggle";
+import CartAmountToggle from "../CartFeatures/CartAmountToggle";
 import { NavLink } from "react-router-dom";
-import { Button } from "../styles/Button";
-import { useCartContext } from "../context/cart_context";
+import { Button } from "../../styles/Button";
+import { useCartContext } from "../../context/cart_context";
 
 const AddToCart = ({ product }) => {
   const { addToCart } = useCartContext();

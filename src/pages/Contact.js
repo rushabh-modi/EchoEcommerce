@@ -39,7 +39,7 @@ const Contact = () => {
       <h2 className="common-heading">Feel free to Contact</h2>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.7268341214744!2d72.54439531476964!3d23.033799984947418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84eaf57ac615%3A0x5c7498bb96b34c97!2sLalbhai%20Dalpatbhai%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1680717961658!5m2!1sen!2sin"
-        width="100%"
+        width="60%"
         height="400"
         style={{ border: 0 }}
         allowFullScreen=""
@@ -91,6 +91,9 @@ const Wrapper = styled.section`
   padding: 9rem 0 5rem 0;
   text-align: center;
   font-size: 15px;
+  .common-heading {
+    margin-bottom: 3rem
+  }
 
   .container {
     margin-top: 6rem;
@@ -107,6 +110,7 @@ const Wrapper = styled.section`
         input[type="submit"] {
           cursor: pointer;
           transition: all 0.2s;
+          margin-top: 0.5rem;
 
           &:hover {
             background-color: ${({ theme }) => theme.colors.white};

@@ -1,6 +1,6 @@
-import { useProductContext } from "./context/ProductContext";
+import { useProductContext } from "../context/ProductContext";
 import { NavLink } from "react-router-dom";
-import { Button } from "./styles/Button";
+import { Button } from "../styles/Button";
 import styled from "styled-components";
 
 const About = (myData) => {
