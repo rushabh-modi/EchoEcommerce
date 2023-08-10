@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import reducer from "../reducer/cartReducer";
+import reducer from "../reducers/cartReducer";
 
 const CartContext = createContext();
 
@@ -46,8 +46,8 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "CLEAR_CART" });
   };
 
-  //   to add the data in local Storage
-  //get vs set
+  // To add the data in local Storage
+  // get vs set
 
   useEffect(() => {
     dispatch({ type: "CART_ITEM_PRICE_TOTAL" });

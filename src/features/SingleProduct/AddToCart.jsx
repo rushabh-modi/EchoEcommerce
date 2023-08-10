@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa";
-import CartAmountToggle from "../CartFeatures/CartAmountToggle";
+import CartAmountToggle from "../Cart/CartAmountToggle";
 import { NavLink } from "react-router-dom";
 import { Button } from "../../styles/Button";
 import { useCartContext } from "../../context/cart_context";

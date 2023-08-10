@@ -1,6 +1,7 @@
 import { useProductContext } from "../../context/ProductContext";
 import styled from "styled-components";
-import Product from "../ProductFeatures/Product";
+// import Product from "../ProductFeatures/Product";
+import Product from "../Product/Product";
 
 const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContext();
@@ -47,7 +48,7 @@ const Wrapper = styled.section`
       left: 0;
       width: 0%;
       height: 100%;
-      ${'' /* background-color: rgba(0, 0, 0, 0.5); */}
+      ${"" /* background-color: rgba(0, 0, 0, 0.5); */}
       transition: all 0.2s linear;
       cursor: pointer;
     }
