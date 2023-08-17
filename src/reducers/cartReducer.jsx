@@ -2,7 +2,7 @@ const cartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
 
-    //tackele the same existing products that creates a duplicate value in cart page
+    //tackle the same existing products that creates a duplicate value in cart page
 
     if (!state.cart) {
       state.cart = [];

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
@@ -22,16 +21,16 @@ const Footer = () => {
             </div>
 
             <div>
-              <Button className="btn hireme-btn">
-                <NavLink
-                  to="/contact"
+              <NavLink to="/contact">
+                <Button
+                  className="btn hireme-btn"
                   onClick={() => {
                     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
                   }}
                 >
                   Contact Us
-                </NavLink>
-              </Button>
+                </Button>
+              </NavLink>
             </div>
           </div>
         </section>

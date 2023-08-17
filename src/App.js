@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -6,7 +5,7 @@ import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
-import NoMatchRoute from "./pages/NoMatchRoute";
+import NoFoundRoute from "./pages/NoFoundRoute";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
@@ -49,7 +48,7 @@ const App = () => {
         <Route path="contact" element={<Contact />} />
         <Route path="singleproduct/:id" element={<SingleProduct />} />
         <Route path="cart" element={<Cart />} />
-        <Route path="*" element={<NoMatchRoute />} />
+        <Route path="*" element={<NoFoundRoute />} />
       </Routes>
       <Footer />
     </ThemeProvider>

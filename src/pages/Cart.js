@@ -8,11 +8,8 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
-  // console.log("🚀 ~ file: Cart.js ~ line 6 ~ Cart ~ cart", cart);
 
-  // Converts INR to USD for Paypal Checkout
-
-  //Mobile cart fixed length cant be defined null
+  //Mobile cart fixed- length cant be defined null
   if (!cart || cart.length === 0) {
     return (
       <EmptyDiv>
@@ -50,7 +47,7 @@ const Cart = () => {
           </Button>
         </div>
 
-        {/* oder total amount */}
+        {/* order total amount */}
         <div className="order-total--amount">
           <div className="order-total--subdata">
             <div>
@@ -72,9 +69,7 @@ const Cart = () => {
                 <FormatPrice price={shipping_fee + total_price} />
               </p>
             </div>
-            {/* <NavLink to="/checkout">
-              <Button className="btn-checkout">Proceed to Checkout</Button>
-            </NavLink> */}
+
             <PayPalScriptProvider
               options={{
                 "client-id":

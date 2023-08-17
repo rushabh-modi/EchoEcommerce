@@ -1,12 +1,14 @@
 {
   "name": "echoecommerce",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.2.0",
     "@paypal/react-paypal-js": "^8.1.0",
     "axios": "^1.4.0",
+    "blurhash": "^2.0.5",
     "react": "^18.2.0",
+    "react-blurhash": "^0.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.1",

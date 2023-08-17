@@ -1,35 +1,48 @@
-import React from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../../styles/Button";
+import { BlurhashCanvas } from "react-blurhash";
 
-const HeroSection = ({ myData }) => {
+const MainSection = ({ myData }) => {
   const { name } = myData;
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Wrapper>
       <div className="container">
         <div className="grid grid-two-column">
-          <div className="hero-section-data">
+          <div className="main-section-data">
             <p className="intro-data">Welcome to </p>
             <h1> {name} </h1>
             <p>
               Welcome to EchoEcommerce, your one-stop destination for all your
               online shopping needs! We offer a wide range of products from
               various categories including electronics items ranging from
-              Mobiles, Laptops and Accessories
+              Mobiles, Laptops and Accessories.
             </p>
             <NavLink to="/products">
               <Button>Shop Now</Button>
             </NavLink>
           </div>
           {/* our homepage image */}
-          <div className="hero-section-image">
+          <div className="main-section-image">
             <figure>
+              <div style={{ display: !imageLoaded ? "inline" : "none" }}>
+                <BlurhashCanvas
+                  hash="LjRVa{t7.TRj-=f+S1n%u5WAVXbI"
+                  width="560"
+                  height="400"
+                />
+              </div>
               <img
                 src="https://user-images.githubusercontent.com/109070924/236439782-57d0637f-c3bb-4589-8106-0f33678ad94d.jpg"
                 alt="home-img"
                 className="img-style"
+                style={{ display: imageLoaded ? "inline" : "none" }}
+                onLoad={() => {
+                  setImageLoaded(true);
+                }}
               />
             </figure>
           </div>
@@ -45,7 +58,7 @@ const Wrapper = styled.section`
     min-width: 10rem;
     height: 10rem;
   }
-  .hero-section-data {
+  .main-section-data {
     p {
       margin: 2rem 0;
     }
@@ -57,7 +70,7 @@ const Wrapper = styled.section`
       margin-bottom: 0;
     }
   }
-  .hero-section-image {
+  .main-section-image {
     width: 100%;
     height: auto;
     display: flex;
@@ -97,4 +110,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default HeroSection;
+export default MainSection;

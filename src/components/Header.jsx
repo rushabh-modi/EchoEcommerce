@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Nav from "./Nav";
@@ -10,6 +9,8 @@ const Header = () => {
         <img
           src="https://user-images.githubusercontent.com/109070924/236601488-6c60f98a-ad2a-40a9-922a-e6bf7e0d56c6.png"
           alt="icon logo"
+          width="56px"
+          height="56px"
         />
         <h2>EchoEcommerce</h2>
       </NavLink>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -9,7 +9,7 @@ const Contact = () => {
 
   function handleForm(e) {
     e.preventDefault();
-    console.log("Form submitted", name, email, message);
+
     const data = {
       name: name,
       email: email,
@@ -24,10 +24,21 @@ const Contact = () => {
     })
       .then((res) => {
         console.log(res);
+
         alert("We'll be contacting you soon");
         setName("");
         setEmail("");
         setMessage("");
+
+        console.log(
+          "Form submitted from having",
+          "Name:",
+          name,
+          "Email:",
+          email,
+          "Message:",
+          message
+        );
       })
       .catch((err) => {
         console.log(err);
@@ -52,7 +63,7 @@ const Contact = () => {
           <form className="contact-inputs" onSubmit={handleForm}>
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Name"
               name="name"
               required
               autoComplete="off"
@@ -91,7 +102,7 @@ const Wrapper = styled.section`
   text-align: center;
   font-size: 15px;
   .common-heading {
-    margin-bottom: 3rem
+    margin-bottom: 3rem;
   }
 
   .container {

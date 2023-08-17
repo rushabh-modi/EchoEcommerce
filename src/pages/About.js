@@ -1,18 +1,21 @@
+import { useState } from "react";
 import { useProductContext } from "../context/ProductContext";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 import styled from "styled-components";
+import { BlurhashCanvas } from "react-blurhash";
 
-const About = (myData) => {
+const About = () => {
   const { myName } = useProductContext();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Wrapper>
       {myName}
-      {/* <HeroSection myData={data} /> */}
+
       <div className="container">
         <div className="grid grid-two-column">
-          <div className="hero-section-data">
+          <div className="main-section-data">
             <p className="intro-data">Welcome to </p>
             <h1>Your Shopping Destinstion </h1>
             <p>
@@ -27,16 +30,27 @@ const About = (myData) => {
               <Button>Let's Shop</Button>
             </NavLink>
           </div>
-          {/* our AboutPage image */}
-          <div className="hero-section-image">
+
+          {/* AboutPage image */}
+          <div className="main-section-image">
             <figure>
+              <div style={{ display: !imageLoaded ? "inline" : "none" }}>
+                <BlurhashCanvas
+                  hash="LKKUAz_N?v%000x[%MxGtmocrroM"
+                  width="550"
+                  height="375"
+                />
+              </div>
               <img
                 src="https://user-images.githubusercontent.com/109070924/236440722-517ea978-90d8-41e4-8415-063e2c1f2d33.jpg"
                 alt="about-img"
                 className="img-style"
+                style={{ display: imageLoaded ? "inline" : "none" }}
+                onLoad={() => {
+                  setImageLoaded(true);
+                }}
               />
             </figure>
-            {/* https://user-images.githubusercontent.com/109070924/236440722-517ea978-90d8-41e4-8415-063e2c1f2d33.jpg */}
           </div>
         </div>
       </div>
@@ -50,7 +64,7 @@ const Wrapper = styled.section`
     min-width: 10rem;
     height: 10rem;
   }
-  .hero-section-data {
+  .main-section-data {
     p {
       margin: 2rem 0;
     }
@@ -63,7 +77,7 @@ const Wrapper = styled.section`
       margin-bottom: 0;
     }
   }
-  .hero-section-image {
+  .main-section-image {
     width: 100%;
     height: auto;
     display: flex;

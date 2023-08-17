@@ -3,7 +3,7 @@ import reducer from "../reducers/cartReducer";
 
 const CartContext = createContext();
 
-//localstorage to not empty cart section while refreshing the page
+//localstorage to not empty cart section when refreshed the page
 const getLocalCartData = () => {
   let localCartData = localStorage.getItem("LSCart");
   if (localCartData === []) {
@@ -14,7 +14,6 @@ const getLocalCartData = () => {
 };
 
 const initialState = {
-  // cart: [],
   cart: getLocalCartData(),
   total_item: "",
   total_price: "",

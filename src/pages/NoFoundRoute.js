@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "../styles/Button";
 
-const NoMatchRoute = () => {
+const NoFoundRoute = () => {
   return (
     <Wrapper>
       <div className="container">
@@ -43,4 +43,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default NoMatchRoute;
+export default NoFoundRoute;
