@@ -109,16 +109,19 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
   h3 {
     padding: 2rem 0;
     font-size: bold;
   }
+
   .filter-search {
     input {
       padding: 0.6rem 1rem;
       width: 80%;
     }
   }
+
   .filter-category {
     div {
       display: flex;
@@ -143,22 +146,26 @@ const Wrapper = styled.section`
       }
     }
   }
+
   .filter-company--select {
     padding: 0.3rem 1.2rem;
     font-size: 1.6rem;
     color: ${({ theme }) => theme.colors.text};
     text-transform: capitalize;
   }
+
   .filter-color-style {
     display: flex;
     justify-content: center;
   }
+
   .color-all--style {
     background-color: transparent;
     text-transform: capitalize;
     border: none;
     cursor: pointer;
   }
+
   .btnStyle {
     width: 2rem;
     height: 2rem;
@@ -173,13 +180,16 @@ const Wrapper = styled.section`
       opacity: 1;
     }
   }
+
   .active {
     opacity: 1;
   }
+
   .checkStyle {
     font-size: 1rem;
     color: #fff;
   }
+
   .filter_price {
     input {
       margin: 0.5rem 0 1rem 0;
@@ -188,11 +198,13 @@ const Wrapper = styled.section`
       cursor: pointer;
     }
   }
+
   .filter-shipping {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
+  
   .filter-clear .btn {
     background-color: #ec7063;
     color: #000;

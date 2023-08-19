@@ -7,7 +7,6 @@ const Sort = () => {
     useFilterContext();
   return (
     <Wrapper className="sort-section">
-
       {/* 1st column  */}
       <div className="sorting-list--grid">
         <button
@@ -24,7 +23,7 @@ const Sort = () => {
           <BsList className="icon" />
         </button>
       </div>
-      
+
       {/* 2nd column  */}
       <div className="product-data">
         <p>{`${filter_products.length} Products Available`}</p>

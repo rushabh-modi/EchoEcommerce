@@ -14,7 +14,6 @@ const Header = () => {
         />
         <h2>EchoEcommerce</h2>
       </NavLink>
-
       <Nav />
     </MainHeader>
   );

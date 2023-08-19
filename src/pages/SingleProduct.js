@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
+import AddToCart from "../features/SingleProduct/AddToCart";
 import styled from "styled-components";
 import PageNavigation from "../features/SingleProduct/PageNavigation";
 import MyImage from "../features/SingleProduct/MyImage";
@@ -11,9 +12,9 @@ import FormatPrice from "../helpers/FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "../features/SingleProduct/Star";
-import AddToCart from "../features/SingleProduct/AddToCart";
+import { LoadingSpinner } from "../helpers/LoadingSpinner";
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = process.env.ECHO_API;
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
@@ -38,7 +39,11 @@ const SingleProduct = () => {
   }, []);
 
   if (isSingleLoading) {
-    return <div className="page_loading">Loading.....</div>;
+    return (
+      <div className="page_loading">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   return (

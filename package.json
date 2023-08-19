@@ -1,6 +1,6 @@
 {
   "name": "echoecommerce",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.2.0",
@@ -11,6 +11,7 @@
     "react-blurhash": "^0.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
     "styled-components": "^6.0.4"

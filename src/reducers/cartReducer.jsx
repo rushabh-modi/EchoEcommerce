@@ -50,7 +50,7 @@ const cartReducer = (state, action) => {
     }
   }
 
-  //   to set increment and decre
+  // to set increment and decrement
   if (action.type === "SET_DECREMENT") {
     let updatedProduct = state.cart.map((curItem) => {
       if (curItem.id === action.payload) {
@@ -69,6 +69,7 @@ const cartReducer = (state, action) => {
     });
     return { ...state, cart: updatedProduct };
   }
+
   if (action.type === "SET_INCREMENT") {
     let updatedProduct = state.cart.map((curItem) => {
       if (curItem.id === action.payload) {
@@ -106,7 +107,7 @@ const cartReducer = (state, action) => {
     };
   }
 
-  //Mobile-fix ->  reduce(state.cart) can't be null(0) => conditioned that it is greater than 0
+  //Mobile-fix -> reduce(state.cart) can't be null(0) => conditioned that it is greater than 0
   if (action.type === "CART_ITEM_PRICE_TOTAL") {
     let total_item = 0;
     let total_price = 0;

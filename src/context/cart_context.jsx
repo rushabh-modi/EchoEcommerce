@@ -27,7 +27,7 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, product } });
   };
 
-  //   incre & decre in cart products
+  // incre & decre in cart products
 
   const setDecrease = (id) => {
     dispatch({ type: "SET_DECREMENT", payload: id });
@@ -40,14 +40,13 @@ const CartProvider = ({ children }) => {
     dispatch({ type: "REMOVE_ITEM", payload: id });
   };
 
-  //to clear cart
+  // To clear cart
   const clearCart = () => {
     dispatch({ type: "CLEAR_CART" });
   };
 
   // To add the data in local Storage
   // get vs set
-
   useEffect(() => {
     dispatch({ type: "CART_ITEM_PRICE_TOTAL" });
     localStorage.setItem("LSCart", JSON.stringify(state.cart));

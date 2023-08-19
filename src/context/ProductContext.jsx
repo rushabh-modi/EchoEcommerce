@@ -4,7 +4,7 @@ import reducer from "../reducers/ProductReducer";
 
 const AppContext = createContext();
 
-const API = "https://api.pujakaitem.com/api/products";
+const API = process.env.REACT_APP_ECHO_API;
 
 const initialState = {
   isLoading: false,
@@ -52,7 +52,6 @@ const AppProvider = ({ children }) => {
 };
 
 // custom hook
-
 const useProductContext = () => {
   return useContext(AppContext);
 };

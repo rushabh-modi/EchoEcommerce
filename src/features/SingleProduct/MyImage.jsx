@@ -41,7 +41,6 @@ const Wrapper = styled.section`
     align-items: center;
     width: 100%;
     gap: 1rem;
-    /* order: 2; */
 
     img {
       max-width: 100%;
@@ -63,6 +62,7 @@ const Wrapper = styled.section`
       box-shadow: ${({ theme }) => theme.colors.shadow};
     }
   }
+  
   .grid-four-column {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);

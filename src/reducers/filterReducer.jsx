@@ -25,8 +25,6 @@ const filterReducer = (state, action) => {
       };
 
     case "GET_SORT_VALUE":
-      // let userSortValue = document.getElementById("sort");
-      // let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
       return {
         ...state,
         sorting_value: action.payload,
@@ -34,7 +32,6 @@ const filterReducer = (state, action) => {
 
     case "SORTING_PRODUCTS":
       let newSortData;
-      // let tempSortProduct = [...action.payload];
 
       const { filter_products, sorting_value } = state;
       let tempSortProduct = [...filter_products];

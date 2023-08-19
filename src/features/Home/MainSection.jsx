@@ -54,10 +54,12 @@ const MainSection = ({ myData }) => {
 
 const Wrapper = styled.section`
   padding: 12rem 0;
+
   img {
     min-width: 10rem;
     height: 10rem;
   }
+
   .main-section-data {
     p {
       margin: 2rem 0;
@@ -70,6 +72,7 @@ const Wrapper = styled.section`
       margin-bottom: 0;
     }
   }
+
   .main-section-image {
     width: 100%;
     height: auto;
@@ -77,6 +80,7 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
   }
+
   figure {
     position: relative;
     &::after {
@@ -90,10 +94,12 @@ const Wrapper = styled.section`
       z-index: -1;
     }
   }
+
   .img-style {
     width: 100%;
     height: auto;
   }
+
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid {
       gap: 10rem;

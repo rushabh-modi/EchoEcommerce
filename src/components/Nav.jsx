@@ -233,7 +233,6 @@ const Wrapper = styled.nav`
       visibility: hidden;
       opacity: 0;
       transform: translateX(100%);
-      /* transform-origin: top; */
       transition: all 3s linear;
     }
 
@@ -249,6 +248,7 @@ const Wrapper = styled.nav`
         font-size: 4.2rem;
       }
     }
+    
     .cart-trolley--link {
       position: relative;
 

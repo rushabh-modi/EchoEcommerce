@@ -62,6 +62,7 @@ const Wrapper = styled.section`
     border-radius: 2rem;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   }
+
   .services-2 {
     gap: 4rem;
     background-color: transparent;
@@ -84,12 +85,12 @@ const Wrapper = styled.section`
       }
     }
   }
+  
   h3 {
     margin-top: 1.4rem;
     font-size: 2rem;
   }
   .icon {
-    /* font-size: rem; */
     width: 8rem;
     height: 8rem;
     padding: 2rem;

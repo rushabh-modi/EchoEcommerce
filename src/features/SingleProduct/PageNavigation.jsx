@@ -9,7 +9,6 @@ const PageNavigation = ({ title }) => {
         <BiLeftArrowAlt className="nav-single" />
         Products/{title}
       </NavLink>
-      
     </Wrapper>
   );
 };

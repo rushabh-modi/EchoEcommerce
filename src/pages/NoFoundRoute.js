@@ -14,7 +14,6 @@ const NoFoundRoute = () => {
             mystery. But you can click the button below to go back to the
             homepage.
           </p>
-
           <NavLink to="/">
             <Button>Go Back to Home</Button>
           </NavLink>
