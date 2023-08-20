@@ -14,7 +14,7 @@ import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "../features/SingleProduct/Star";
 import { LoadingSpinner } from "../helpers/LoadingSpinner";
 
-const API = process.env.ECHO_API;
+const API = process.env.REACT_APP_ECHO_API;
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
