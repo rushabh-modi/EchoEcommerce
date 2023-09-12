@@ -9,7 +9,6 @@ import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 const Cart = () => {
   const { cart, clearCart, total_price, shipping_fee } = useCartContext();
 
-  //Mobile cart fixed- length cant be defined null
   if (!cart || cart.length === 0) {
     return (
       <EmptyDiv>
@@ -51,24 +50,13 @@ const Cart = () => {
         <div className="order-total--amount">
           <div className="order-total--subdata">
             <div>
-              <p>subtotal:</p>
+              <p>order total:</p>
               <p>
                 <FormatPrice price={total_price} />
               </p>
             </div>
-            <div>
-              <p>shipping fee:</p>
-              <p>
-                <FormatPrice price={shipping_fee} />
-              </p>
-            </div>
+
             <hr />
-            <div>
-              <p>order total:</p>
-              <p>
-                <FormatPrice price={shipping_fee + total_price} />
-              </p>
-            </div>
 
             <PayPalScriptProvider
               options={{

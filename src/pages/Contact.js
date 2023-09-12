@@ -1,43 +1,35 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { BsCheck2Square } from "react-icons/bs";
 
 const Contact = () => {
-  let [name, setName] = useState("");
-  let [email, setEmail] = useState("");
-  let [message, setMessage] = useState("");
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const messageRef = useRef(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   function handleForm(e) {
     e.preventDefault();
 
     const data = {
-      name: name,
-      email: email,
-      message: message,
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      message: messageRef.current.value,
     };
 
     axios({
-      method: "post",
-      url: "https://rushabhmodi25.000webhostapp.com/EchoEcommerce/echo_contact.php",
-      data: data,
-      headers: { "Content-Type": "multipart/form-data" },
+      method: "POST",
+      url: process.env.REACT_APP_FIREBASE_CONTACTFORM,
+      data: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
     })
       .then((res) => {
         console.log(res);
-        console.log(
-          "Form submitted from having",
-          "Name:",
-          name,
-          "Email:",
-          email,
-          "Message:",
-          message
-        );
-
-        alert("We'll be contacting you soon");
-        setName("");
-        setEmail("");
-        setMessage("");
+        setIsSubmitted(true);
+        nameRef.current.value = "";
+        emailRef.current.value = "";
+        messageRef.current.value = "";
       })
       .catch((err) => {
         console.log(err);
@@ -57,8 +49,7 @@ const Contact = () => {
               name="name"
               required
               autoComplete="off"
-              onChange={(e) => setName(e.target.value)}
-              value={name}
+              ref={nameRef}
             />
             <input
               type="email"
@@ -66,8 +57,7 @@ const Contact = () => {
               name="email"
               required
               autoComplete="off"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
+              ref={emailRef}
             />
             <textarea
               placeholder="Enter your message"
@@ -76,10 +66,16 @@ const Contact = () => {
               rows="10"
               required
               autoComplete="off"
-              onChange={(e) => setMessage(e.target.value)}
-              value={message}
+              ref={messageRef}
             />
-            <input type="submit" value="SEND" />
+            <div className="submitted">
+              <input type="submit" value="SEND" />
+              {isSubmitted && (
+                <h3>
+                  <BsCheck2Square /> Form Submitted
+                </h3>
+              )}
+            </div>
           </form>
         </div>
       </div>
@@ -107,20 +103,30 @@ const Wrapper = styled.section`
         flex-direction: column;
         gap: 3rem;
 
-        input[type="submit"] {
-          cursor: pointer;
-          transition: all 0.2s;
-          margin-top: 0.5rem;
-
-          &:hover {
-            background-color: ${({ theme }) => theme.colors.white};
-            border: 1px solid ${({ theme }) => theme.colors.btn};
-            color: ${({ theme }) => theme.colors.btn};
-            transform: scale(0.9);
-          }
-        }
         textarea {
           resize: none;
+        }
+
+        .submitted {
+          display: flex;
+          align-items: center;
+
+          h3 {
+            margin-left: 10px;
+          }
+
+          input[type="submit"] {
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+
+            &:hover {
+              background-color: ${({ theme }) => theme.colors.white};
+              border: 1px solid ${({ theme }) => theme.colors.btn};
+              color: ${({ theme }) => theme.colors.btn};
+              transform: scale(0.9);
+            }
+          }
         }
       }
     }

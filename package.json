@@ -1,6 +1,6 @@
 {
   "name": "echoecommerce",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.2.0",

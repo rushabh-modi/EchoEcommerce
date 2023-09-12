@@ -1,4 +1,4 @@
-import { useProductContext } from "../../context/ProductContext";
+import { useProductContext } from "../../context/product_context";
 import styled from "styled-components";
 import Product from "../Product/Product";
 import { LoadingSpinner } from "../../helpers/LoadingSpinner";

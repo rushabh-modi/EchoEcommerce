@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useProductContext } from "../context/ProductContext";
+import { useProductContext } from "../context/product_context";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 import styled from "styled-components";

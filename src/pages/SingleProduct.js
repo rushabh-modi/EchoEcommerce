@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useProductContext } from "../context/ProductContext";
+import { useProductContext } from "../context/product_context";
 import AddToCart from "../features/SingleProduct/AddToCart";
 import styled from "styled-components";
 import PageNavigation from "../features/SingleProduct/PageNavigation";
@@ -78,17 +78,17 @@ const SingleProduct = () => {
 
               <div className="product-warranty-data">
                 <TbReplace className="warranty-icon" />
-                <p>15 Days Replacement</p>
+                <p>7 Days Replacement</p>
               </div>
 
               <div className="product-warranty-data">
                 <TbTruckDelivery className="warranty-icon" />
-                <p>Instant Delivered </p>
+                <p>Instant Delivered</p>
               </div>
 
               <div className="product-warranty-data">
                 <MdSecurity className="warranty-icon" />
-                <p>2 Year Warranty </p>
+                <p>2 Years Warranty</p>
               </div>
             </div>
 
