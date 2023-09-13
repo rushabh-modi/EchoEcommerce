@@ -1,23 +1,19 @@
 import { useState } from "react";
-import { useProductContext } from "../context/product_context";
 import { NavLink } from "react-router-dom";
 import { Button } from "../styles/Button";
 import styled from "styled-components";
 import { BlurhashCanvas } from "react-blurhash";
 
 const About = () => {
-  const { myName } = useProductContext();
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <Wrapper>
-      {myName}
-
       <div className="container">
         <div className="grid grid-two-column">
           <div className="main-section-data">
             <p className="intro-data">Welcome to </p>
-            <h1>Your Shopping Destinstion </h1>
+            <h1>Your Shopping Destination</h1>
             <p>
               At EchoEcommerce, we're passionate about providing high-quality
               products that make life easier for our customers. Our Website is

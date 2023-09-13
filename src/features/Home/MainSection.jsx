@@ -4,8 +4,7 @@ import styled from "styled-components";
 import { Button } from "../../styles/Button";
 import { BlurhashCanvas } from "react-blurhash";
 
-const MainSection = ({ myData }) => {
-  const { name } = myData;
+const MainSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
@@ -14,7 +13,7 @@ const MainSection = ({ myData }) => {
         <div className="grid grid-two-column">
           <div className="main-section-data">
             <p className="intro-data">Welcome to </p>
-            <h1> {name} </h1>
+            <h1> EchoEcommerce </h1>
             <p>
               Welcome to EchoEcommerce, your one-stop destination for all your
               online shopping needs! We offer a wide range of products from

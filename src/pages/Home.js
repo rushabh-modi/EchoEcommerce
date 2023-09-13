@@ -4,13 +4,9 @@ import Services from "../features/Home/Services";
 import FeatureProducts from "../features/Home/FeatureProducts";
 
 const Home = () => {
-  const data = {
-    name: "EchoEcommerce",
-  };
-
   return (
     <>
-      <MainSection myData={data} />;
+      <MainSection />;
       <FeatureProducts />
       <Services />
       <Trusted />

@@ -20,7 +20,7 @@ const initialState = {
   shipping_fee: 5000,
 };
 
-const CartProvider = ({ children }) => {
+export const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const addToCart = (id, color, amount, product) => {
@@ -68,8 +68,6 @@ const CartProvider = ({ children }) => {
   );
 };
 
-const useCartContext = () => {
+export const useCartContext = () => {
   return useContext(CartContext);
 };
-
-export { CartProvider, useCartContext };

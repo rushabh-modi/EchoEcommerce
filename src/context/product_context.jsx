@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
 import reducer from "../reducers/productReducer";
 
-const AppContext = createContext();
+export const ProductContext = createContext();
 
 const API = process.env.REACT_APP_ECHO_API;
 
@@ -15,7 +15,7 @@ const initialState = {
   singleProduct: {},
 };
 
-const AppProvider = ({ children }) => {
+export const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const getProducts = async (url) => {
@@ -45,15 +45,13 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ ...state, getSingleProduct }}>
+    <ProductContext.Provider value={{ ...state, getSingleProduct }}>
       {children}
-    </AppContext.Provider>
+    </ProductContext.Provider>
   );
 };
 
 // custom hook
-const useProductContext = () => {
-  return useContext(AppContext);
+export const useProductContext = () => {
+  return useContext(ProductContext);
 };
-
-export { AppProvider, AppContext, useProductContext };
