@@ -1,4 +1,4 @@
-const ProductReducer = (state, action) => {
+export const ProductReducer = (state, action) => {
   switch (action.type) {
     case "SET_LOADING":
       return {
@@ -50,4 +50,3 @@ const ProductReducer = (state, action) => {
   }
 };
 
-export default ProductReducer;

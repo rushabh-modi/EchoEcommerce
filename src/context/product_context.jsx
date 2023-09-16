@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
-import reducer from "../reducers/productReducer";
+import { ProductReducer } from "../reducers/productReducer";
 
 export const ProductContext = createContext();
 
@@ -16,12 +16,12 @@ const initialState = {
 };
 
 export const ProductContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(ProductReducer, initialState);
 
-  const getProducts = async (url) => {
+  const getProducts = async () => {
     dispatch({ type: "SET_LOADING" });
     try {
-      const res = await axios.get(url);
+      const res = await axios.get(API);
       const products = await res.data;
       dispatch({ type: "SET_API_DATA", payload: products });
     } catch (error) {

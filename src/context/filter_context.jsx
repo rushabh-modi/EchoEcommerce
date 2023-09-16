@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { useProductContext } from "./product_context";
-import reducer from "../reducers/filterReducer";
+import { filterReducer } from "../reducers/filterReducer";
 
 const FilterContext = createContext();
 
@@ -22,7 +22,7 @@ const initialState = {
 export const FilterContextProvider = ({ children }) => {
   const { products } = useProductContext();
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(filterReducer, initialState);
 
   // to set the grid view
   const setGridView = () => {

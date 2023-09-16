@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import reducer from "../reducers/cartReducer";
+import { cartReducer } from "../reducers/cartReducer";
 
 const CartContext = createContext();
 
@@ -21,7 +21,7 @@ const initialState = {
 };
 
 export const CartContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(cartReducer, initialState);
 
   const addToCart = (id, color, amount, product) => {
     dispatch({ type: "ADD_TO_CART", payload: { id, color, amount, product } });
