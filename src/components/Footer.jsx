@@ -119,7 +119,9 @@ const Footer = () => {
             <div className="container">
               <p>
                 Copyright ©️ {new Date().getFullYear()}{" "}
-                rushabhmodi2552@gmail.com
+                <a href="mailto:rushabhmodi2552@gmail.com">
+                  rushabhmodi2552@gmail.com
+                </a>
               </p>
             </div>
           </div>
@@ -185,6 +187,11 @@ const Wrapper = styled.section`
       margin-bottom: 2rem;
       color: ${({ theme }) => theme.colors.hr};
       height: 0.1px;
+    }
+
+    a {
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors.white};
     }
   }
 

@@ -1,4 +1,4 @@
-export const filterReducer = (state, action) => {
+const FilterReducer = (state, action) => {
   switch (action.type) {
     case "LOAD_FILTER_PRODUCTS":
       let priceArr = action.payload.map((curElem) => curElem.price);
@@ -129,3 +129,5 @@ export const filterReducer = (state, action) => {
       return state;
   }
 };
+
+export default FilterReducer;

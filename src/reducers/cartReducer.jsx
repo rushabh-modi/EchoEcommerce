@@ -1,4 +1,4 @@
-export const cartReducer = (state, action) => {
+const CartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     let { id, color, amount, product } = action.payload;
 
@@ -136,4 +136,4 @@ export const cartReducer = (state, action) => {
   return state;
 };
 
-export default cartReducer;
+export default CartReducer;

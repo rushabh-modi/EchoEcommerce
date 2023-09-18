@@ -2,17 +2,17 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useProductContext } from "../context/product_context";
+import useProductContext from "../hooks/UseProductContext";
 import AddToCart from "../features/SingleProduct/AddToCart";
 import styled from "styled-components";
 import PageNavigation from "../features/SingleProduct/PageNavigation";
 import MyImage from "../features/SingleProduct/MyImage";
 import { Container } from "../styles/Container";
-import FormatPrice from "../helpers/FormatPrice";
+import FormatPrice from "../components/FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "../features/SingleProduct/Star";
-import { LoadingSpinner } from "../helpers/LoadingSpinner";
+import { LoadingSpinner } from "../components/LoadingSpinner";
 
 const API = process.env.REACT_APP_ECHO_API;
 

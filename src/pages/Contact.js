@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { BsCheck2Square } from "react-icons/bs";
@@ -8,6 +8,10 @@ const Contact = () => {
   const emailRef = useRef(null);
   const messageRef = useRef(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    nameRef.current.focus();
+  }, []);
 
   function handleForm(e) {
     e.preventDefault();

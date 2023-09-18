@@ -1,5 +1,5 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
-import { cartReducer } from "../reducers/cartReducer";
+import { createContext, useReducer, useEffect } from "react";
+import cartReducer from "../reducers/CartReducer";
 
 const CartContext = createContext();
 
@@ -20,7 +20,7 @@ const initialState = {
   shipping_fee: 5000,
 };
 
-export const CartContextProvider = ({ children }) => {
+export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   const addToCart = (id, color, amount, product) => {
@@ -68,6 +68,4 @@ export const CartContextProvider = ({ children }) => {
   );
 };
 
-export const useCartContext = () => {
-  return useContext(CartContext);
-};
+export default CartContext;

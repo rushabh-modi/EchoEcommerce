@@ -1,7 +1,7 @@
-import { useProductContext } from "../../context/product_context";
+import useProductContext from "../../hooks/UseProductContext";
 import styled from "styled-components";
 import Product from "../Product/Product";
-import { LoadingSpinner } from "../../helpers/LoadingSpinner";
+import { LoadingSpinner } from "../../components/LoadingSpinner";
 
 const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContext();

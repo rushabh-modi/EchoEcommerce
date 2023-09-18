@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { useFilterContext } from "../../context/filter_context";
-import FormatPrice from "../../helpers/FormatPrice";
+import useFilterContext from "../../hooks/UseFilterContext";
+import FormatPrice from "../../components/FormatPrice";
 import { Button } from "../../styles/Button";
 
 const FilterSection = () => {
@@ -204,7 +204,7 @@ const Wrapper = styled.section`
     align-items: center;
     gap: 1rem;
   }
-  
+
   .filter-clear .btn {
     background-color: #ec7063;
     color: #000;

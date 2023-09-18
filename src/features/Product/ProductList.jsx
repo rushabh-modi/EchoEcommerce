@@ -1,4 +1,4 @@
-import { useFilterContext } from "../../context/filter_context";
+import useFilterContext from "../../hooks/UseFilterContext";
 import GridView from "./GridView";
 import ListView from "./ListView";
 

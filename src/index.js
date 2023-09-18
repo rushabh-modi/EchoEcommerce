@@ -2,9 +2,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App";
-import { ProductContextProvider } from "./context/product_context";
-import { FilterContextProvider } from "./context/filter_context";
-import { CartContextProvider } from "./context/cart_context";
+import { ProductProvider } from "./context/ProductProvider";
+import { FilterProvider } from "./context/FilterProvider";
+import { CartProvider } from "./context/CartProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const domain = process.env.REACT_APP_AUTH_DOMAIN;
@@ -18,14 +18,14 @@ root.render(
       redirect_uri: window.location.origin,
     }}
   >
-    <ProductContextProvider>
-      <FilterContextProvider>
-        <CartContextProvider>
+    <ProductProvider>
+      <FilterProvider>
+        <CartProvider>
           <BrowserRouter>
             <App />
           </BrowserRouter>
-        </CartContextProvider>
-      </FilterContextProvider>
-    </ProductContextProvider>
+        </CartProvider>
+      </FilterProvider>
+    </ProductProvider>
   </Auth0Provider>
 );
