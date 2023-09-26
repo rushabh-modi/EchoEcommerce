@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { FiShoppingCart } from "react-icons/fi";
-import { CgMenu, CgClose } from "react-icons/cg";
-import useCartContext from "../hooks/UseCartContext";
-import { useAuth0 } from "@auth0/auth0-react";
-import { Button } from "../styles/Button";
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { FiShoppingCart } from 'react-icons/fi';
+import { CgMenu, CgClose } from 'react-icons/cg';
+import useCartContext from '../hooks/useCartContext';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Button } from '../styles/Button';
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
@@ -14,7 +14,7 @@ const Nav = () => {
 
   return (
     <Wrapper>
-      <div className={menuIcon ? "navbar active" : "navbar"}>
+      <div className={menuIcon ? 'navbar active' : 'navbar'}>
         <ul className="navbar-lists">
           <li>
             <NavLink
@@ -61,9 +61,9 @@ const Nav = () => {
                 src={user.picture}
                 alt="User pic"
                 style={{
-                  borderRadius: "50px",
-                  width: "40px",
-                  marginRight: "-40px",
+                  borderRadius: '50px',
+                  width: '40px',
+                  marginRight: '-40px',
                 }}
               />
             </div>
@@ -150,7 +150,7 @@ const Wrapper = styled.nav`
     border: none;
   }
 
-  .mobile-nav-icon[name="close-outline"] {
+  .mobile-nav-icon[name='close-outline'] {
     display: none;
   }
 

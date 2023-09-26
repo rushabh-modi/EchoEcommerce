@@ -1,5 +1,5 @@
 const CartReducer = (state, action) => {
-  if (action.type === "ADD_TO_CART") {
+  if (action.type === 'ADD_TO_CART') {
     let { id, color, amount, product } = action.payload;
 
     //tackle the same existing products that creates a duplicate value in cart page
@@ -51,7 +51,7 @@ const CartReducer = (state, action) => {
   }
 
   // to set increment and decrement
-  if (action.type === "SET_DECREMENT") {
+  if (action.type === 'SET_DECREMENT') {
     let updatedProduct = state.cart.map((curItem) => {
       if (curItem.id === action.payload) {
         let decAmount = curItem.amount - 1;
@@ -70,7 +70,7 @@ const CartReducer = (state, action) => {
     return { ...state, cart: updatedProduct };
   }
 
-  if (action.type === "SET_INCREMENT") {
+  if (action.type === 'SET_INCREMENT') {
     let updatedProduct = state.cart.map((curItem) => {
       if (curItem.id === action.payload) {
         let increAmount = curItem.amount + 1;
@@ -89,7 +89,7 @@ const CartReducer = (state, action) => {
     return { ...state, cart: updatedProduct };
   }
 
-  if (action.type === "REMOVE_ITEM") {
+  if (action.type === 'REMOVE_ITEM') {
     let updatedCart = state.cart.filter(
       (curItem) => curItem.id !== action.payload
     );
@@ -100,7 +100,7 @@ const CartReducer = (state, action) => {
   }
 
   //to empty cart
-  if (action.type === "CLEAR_CART") {
+  if (action.type === 'CLEAR_CART') {
     return {
       ...state,
       cart: [],
@@ -108,7 +108,7 @@ const CartReducer = (state, action) => {
   }
 
   //Mobile-fix -> reduce(state.cart) can't be null(0) => conditioned that it is greater than 0
-  if (action.type === "CART_ITEM_PRICE_TOTAL") {
+  if (action.type === 'CART_ITEM_PRICE_TOTAL') {
     let total_item = 0;
     let total_price = 0;
 

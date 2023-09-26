@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect } from "react";
-import styled from "styled-components";
-import axios from "axios";
-import { BsCheck2Square } from "react-icons/bs";
+import { useState, useRef, useEffect } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
+import { BsCheck2Square } from 'react-icons/bs';
+import { Button } from '../styles/Button';
 
 const Contact = () => {
   const nameRef = useRef(null);
@@ -23,17 +24,17 @@ const Contact = () => {
     };
 
     axios({
-      method: "POST",
+      method: 'POST',
       url: process.env.REACT_APP_FIREBASE_CONTACTFORM,
       data: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     })
       .then((res) => {
         console.log(res);
         setIsSubmitted(true);
-        nameRef.current.value = "";
-        emailRef.current.value = "";
-        messageRef.current.value = "";
+        nameRef.current.value = '';
+        emailRef.current.value = '';
+        messageRef.current.value = '';
       })
       .catch((err) => {
         console.log(err);
@@ -73,7 +74,7 @@ const Contact = () => {
               ref={messageRef}
             />
             <div className="submitted">
-              <input type="submit" value="SEND" />
+              <Button type="submit">SEND</Button>
               {isSubmitted && (
                 <h3>
                   <BsCheck2Square /> Form Submitted
@@ -119,7 +120,7 @@ const Wrapper = styled.section`
             margin-left: 10px;
           }
 
-          input[type="submit"] {
+          input[type='submit'] {
             cursor: pointer;
             transition: all 0.2s;
             margin-top: 0.5rem;

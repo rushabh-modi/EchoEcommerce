@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import useFilterContext from "../../hooks/UseFilterContext";
-import FormatPrice from "../../components/FormatPrice";
-import { Button } from "../../styles/Button";
+import styled from 'styled-components';
+import useFilterContext from '../../hooks/useFilterContext';
+import FormatPrice from '../../components/FormatPrice';
+import { Button } from '../../styles/Button';
 
 const FilterSection = () => {
   const {
@@ -17,12 +17,12 @@ const FilterSection = () => {
       return curElem[attr];
     });
 
-    return (newVal = ["all", ...new Set(newVal)]);
+    return (newVal = ['all', ...new Set(newVal)]);
   };
 
   // we need to have the individual data of each in an array format
-  const categoryData = getUniqueData(all_products, "category");
-  const companyData = getUniqueData(all_products, "company");
+  const categoryData = getUniqueData(all_products, 'category');
+  const companyData = getUniqueData(all_products, 'company');
 
   return (
     <Wrapper>
@@ -49,7 +49,7 @@ const FilterSection = () => {
                 type="button"
                 name="category"
                 value={curElem}
-                className={curElem === category ? "active" : ""}
+                className={curElem === category ? 'active' : ''}
                 onClick={updateFilterValue}
               >
                 {curElem}

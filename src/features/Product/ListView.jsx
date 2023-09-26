@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import FormatPrice from "../../components/FormatPrice";
-import { Button } from "../../styles/Button";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import FormatPrice from '../../components/FormatPrice';
+import { Button } from '../../styles/Button';
 
 const ListView = ({ products }) => {
   return (
@@ -22,7 +22,7 @@ const ListView = ({ products }) => {
                 </p>
                 <p>{description.slice(0, 90)}...</p>
 
-                <NavLink to={`/singleproduct/${id}`} className="btn-main">
+                <NavLink to={`/product/${id}`} className="btn-main">
                   <Button className="btn">Read More</Button>
                 </NavLink>
               </div>
@@ -54,7 +54,7 @@ const Wrapper = styled.section`
     overflow: hidden;
     transition: all 0.5s linear;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;

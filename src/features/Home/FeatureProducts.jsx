@@ -1,7 +1,7 @@
-import useProductContext from "../../hooks/UseProductContext";
-import styled from "styled-components";
-import Product from "../Product/Product";
-import { LoadingSpinner } from "../../components/LoadingSpinner";
+import useProductContext from '../../hooks/useProductContext';
+import styled from 'styled-components';
+import Product from '../Product/Product';
+import { LoadingSpinner } from '../../components/LoadingSpinner';
 
 const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContext();
@@ -42,13 +42,13 @@ const Wrapper = styled.section`
     overflow: hidden;
     transition: all 0.5s linear;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 0%;
       height: 100%;
-      ${"" /* background-color: rgba(0, 0, 0, 0.5); */}
+      ${'' /* background-color: rgba(0, 0, 0, 0.5); */}
       transition: all 0.2s linear;
       cursor: pointer;
     }

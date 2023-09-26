@@ -1,6 +1,6 @@
-import useFilterContext from "../../hooks/UseFilterContext";
-import GridView from "./GridView";
-import ListView from "./ListView";
+import useFilterContext from '../../hooks/useFilterContext';
+import GridView from './GridView';
+import ListView from './ListView';
 
 const ProductList = () => {
   const { filter_products, grid_view } = useFilterContext();

@@ -1,10 +1,10 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { FaCheck } from "react-icons/fa";
-import CartAmountToggle from "../Cart/CartAmountToggle";
-import { NavLink } from "react-router-dom";
-import { Button } from "../../styles/Button";
-import useCartContext from "../../hooks/UseCartContext";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { FaCheck } from 'react-icons/fa';
+import CartAmountToggle from '../Cart/CartAmountToggle';
+import { NavLink } from 'react-router-dom';
+import { Button } from '../../styles/Button';
+import useCartContext from '../../hooks/useCartContext';
 
 const AddToCart = ({ product }) => {
   const { addToCart } = useCartContext();
@@ -31,7 +31,7 @@ const AddToCart = ({ product }) => {
               <button
                 key={index}
                 style={{ backgroundColor: curColor }}
-                className={color === curColor ? "btnStyle active" : "btnStyle"}
+                className={color === curColor ? 'btnStyle active' : 'btnStyle'}
                 onClick={() => setColor(curColor)}
               >
                 {color === curColor ? <FaCheck className="checkStyle" /> : null}
@@ -52,7 +52,7 @@ const AddToCart = ({ product }) => {
         <Button
           className="btn"
           onClick={() => {
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
           }}
         >
           Add To Cart

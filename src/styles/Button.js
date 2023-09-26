@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Button = styled.button`
   text-decoration: none;
@@ -7,6 +7,7 @@ export const Button = styled.button`
   color: rgb(255 255 255);
   padding: 1.4rem 2.4rem;
   border: none;
+  border-radius: 8px;
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;

@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import useCartContext from "../hooks/UseCartContext";
-import CartItem from "../features/Cart/CartItem";
-import { NavLink } from "react-router-dom";
-import { Button } from "../styles/Button";
-import FormatPrice from "../components/FormatPrice";
-import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import styled from 'styled-components';
+import useCartContext from '../hooks/useCartContext';
+import CartItem from '../features/Cart/CartItem';
+import { NavLink } from 'react-router-dom';
+import { Button } from '../styles/Button';
+import FormatPrice from '../components/FormatPrice';
+import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const Cart = () => {
-  const { cart, clearCart, total_price, shipping_fee } = useCartContext();
+  const { cart, clearCart, total_price } = useCartContext();
 
   if (!cart || cart.length === 0) {
     return (
@@ -60,8 +60,8 @@ const Cart = () => {
 
             <PayPalScriptProvider
               options={{
-                "client-id":
-                  "AYTy3tCf94SiWOyjALTynopIpDuvx--MyCTUm-1pxBX0eRMpK9lTldjXrBnEHZiHmZSkgpu6IgqHKfyG",
+                'client-id':
+                  'AYTy3tCf94SiWOyjALTynopIpDuvx--MyCTUm-1pxBX0eRMpK9lTldjXrBnEHZiHmZSkgpu6IgqHKfyG',
               }}
             >
               <PayPalButtons
@@ -70,7 +70,7 @@ const Cart = () => {
                     purchase_units: [
                       {
                         amount: {
-                          value: shipping_fee + total_price,
+                          value: total_price,
                         },
                       },
                     ],

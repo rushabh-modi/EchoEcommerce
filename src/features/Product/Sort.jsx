@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { BsFillGridFill, BsList } from "react-icons/bs";
-import useFilterContext from "../../hooks/UseFilterContext";
+import styled from 'styled-components';
+import { BsFillGridFill, BsList } from 'react-icons/bs';
+import useFilterContext from '../../hooks/useFilterContext';
 
 const Sort = () => {
   const { filter_products, grid_view, setGridView, setListView, sorting } =
@@ -10,14 +10,14 @@ const Sort = () => {
       {/* 1st column  */}
       <div className="sorting-list--grid">
         <button
-          className={grid_view ? "active sort-btn" : "sort-btn"}
+          className={grid_view ? 'active sort-btn' : 'sort-btn'}
           onClick={setGridView}
         >
           <BsFillGridFill className="icon" />
         </button>
 
         <button
-          className={!grid_view ? "active sort-btn" : " sort-btn"}
+          className={!grid_view ? 'active sort-btn' : ' sort-btn'}
           onClick={setListView}
         >
           <BsList className="icon" />
