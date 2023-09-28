@@ -1,13 +1,16 @@
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import useCartContext from '../hooks/useCartContext';
-import CartItem from '../features/Cart/CartItem';
 import { NavLink } from 'react-router-dom';
-import { Button } from '../styles/Button';
-import FormatPrice from '../components/FormatPrice';
 import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
 
+import { clearCart } from '../features/cart/cartSlice';
+import CartItem from '../features/cart/CartItem';
+import { Button } from '../styles/Button';
+import FormatPrice from '../components/utils/FormatPrice';
+
 const Cart = () => {
-  const { cart, clearCart, total_price } = useCartContext();
+  const dispatch = useDispatch();
+  const { cart, total_price } = useSelector((store) => store.cart);
 
   if (!cart || cart.length === 0) {
     return (
@@ -32,8 +35,8 @@ const Cart = () => {
         <hr />
 
         <div className="cart-item">
-          {cart.map((curElem) => {
-            return <CartItem key={curElem.id} {...curElem} />;
+          {cart.map((item) => {
+            return <CartItem key={item.id} {...item} />;
           })}
         </div>
         <hr />
@@ -41,7 +44,10 @@ const Cart = () => {
           <NavLink to="/products">
             <Button>Continue Shopping</Button>
           </NavLink>
-          <Button className="btn btn-clear" onClick={clearCart}>
+          <Button
+            className="btn btn-clear"
+            onClick={() => dispatch(clearCart())}
+          >
             Clear Cart
           </Button>
         </div>

@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { Auth0Provider } from '@auth0/auth0-react';
+
+import store from './app/store';
 import App from './App';
-import { ProductProvider } from './context/ProductProvider';
-import { FilterProvider } from './context/FilterProvider';
-import { CartProvider } from './context/CartProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const domain = process.env.REACT_APP_AUTH_DOMAIN;
@@ -18,16 +18,12 @@ root.render(
       redirect_uri: window.location.origin,
     }}
   >
-    <ProductProvider>
-      <FilterProvider>
-        <CartProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/*" element={<App />} />
-            </Routes>
-          </BrowserRouter>
-        </CartProvider>
-      </FilterProvider>
-    </ProductProvider>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </Auth0Provider>
 );

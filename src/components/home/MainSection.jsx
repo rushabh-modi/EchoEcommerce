@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { Button } from "../../styles/Button";
-import { BlurhashCanvas } from "react-blurhash";
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import { BlurhashCanvas } from 'react-blurhash';
+
+import { Button } from '../../styles/Button';
 
 const MainSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -27,7 +28,7 @@ const MainSection = () => {
           {/* our homepage image */}
           <div className="main-section-image">
             <figure>
-              <div style={{ display: !imageLoaded ? "inline" : "none" }}>
+              <div style={{ display: !imageLoaded ? 'inline' : 'none' }}>
                 <BlurhashCanvas
                   hash="LjRVa{t7.TRj-=f+S1n%u5WAVXbI"
                   width="560"
@@ -38,7 +39,7 @@ const MainSection = () => {
                 src="https://user-images.githubusercontent.com/109070924/236439782-57d0637f-c3bb-4589-8106-0f33678ad94d.jpg"
                 alt="home-img"
                 className="img-style"
-                style={{ display: imageLoaded ? "inline" : "none" }}
+                style={{ display: imageLoaded ? 'inline' : 'none' }}
                 onLoad={() => {
                   setImageLoaded(true);
                 }}
@@ -83,7 +84,7 @@ const Wrapper = styled.section`
   figure {
     position: relative;
     &::after {
-      content: "";
+      content: '';
       width: 60%;
       height: 80%;
       background-color: rgba(81, 56, 238, 0.4);
@@ -104,7 +105,7 @@ const Wrapper = styled.section`
       gap: 10rem;
     }
     figure::after {
-      content: "";
+      content: '';
       width: 50%;
       height: 100%;
       left: 0;

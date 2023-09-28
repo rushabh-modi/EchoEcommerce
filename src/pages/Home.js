@@ -1,7 +1,7 @@
-import MainSection from "../features/Home/MainSection";
-import Trusted from "../features/Home/Trusted";
-import Services from "../features/Home/Services";
-import FeatureProducts from "../features/Home/FeatureProducts";
+import MainSection from '../components/home/MainSection';
+import Trusted from '../components/home/Trusted';
+import Services from '../components/home/Services';
+import FeatureProducts from '../features/product/FeatureProducts';
 
 const Home = () => {
   return (

@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import { FaCheck } from 'react-icons/fa';
-import CartAmountToggle from '../Cart/CartAmountToggle';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { FaCheck } from 'react-icons/fa';
+import styled from 'styled-components';
+
+import { addToCart } from './cartSlice';
+import CartAmountToggle from './CartAmountToggle';
 import { Button } from '../../styles/Button';
-import useCartContext from '../../hooks/useCartContext';
 
 const AddToCart = ({ product }) => {
-  const { addToCart } = useCartContext();
+  const dispatch = useDispatch();
   const { id, colors, stock } = product;
 
   const [color, setColor] = useState(colors[0]);
@@ -48,7 +50,10 @@ const AddToCart = ({ product }) => {
         setIncrease={setIncrease}
       />
 
-      <NavLink to="/cart" onClick={() => addToCart(id, color, amount, product)}>
+      <NavLink
+        to="/cart"
+        onClick={() => dispatch(addToCart({ id, color, amount, product }))}
+      >
         <Button
           className="btn"
           onClick={() => {

@@ -1,10 +1,11 @@
-import useProductContext from '../../hooks/useProductContext';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import Product from '../Product/Product';
-import { LoadingSpinner } from '../../components/LoadingSpinner';
+
+import Product from '../filter/Product';
+import { LoadingSpinner } from '../../components/utils/LoadingSpinner';
 
 const FeatureProduct = () => {
-  const { isLoading, featureProducts } = useProductContext();
+  const { isLoading, featureProducts } = useSelector((store) => store.product);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -16,8 +17,8 @@ const FeatureProduct = () => {
         <div className="intro-data">Check Now!</div>
         <div className="common-heading">Our Featured Products</div>
         <div className="grid grid-three-column">
-          {featureProducts.map((curElem) => {
-            return <Product key={curElem.id} {...curElem} />;
+          {featureProducts.map((item) => {
+            return <Product key={item.id} {...item} />;
           })}
         </div>
       </div>

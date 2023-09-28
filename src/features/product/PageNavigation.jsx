@@ -24,6 +24,11 @@ const Wrapper = styled.section`
 
   a {
     font-size: 2.2rem;
+    color: inherit;
+  }
+
+  a:active {
+    outline: none;
   }
 `;
 

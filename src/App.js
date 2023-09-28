@@ -1,57 +1,62 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import About from './pages/About';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Layout from './components/ui/Layout';
 import Home from './pages/Home';
+import About from './pages/About';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import SingleProduct from './pages/SingleProduct';
 import Cart from './pages/Cart';
 import NoFoundRoute from './pages/NoFoundRoute';
-import { GlobalStyle } from './styles/GlobalStyle';
-import { ThemeProvider } from 'styled-components';
-import Header from './components/Header';
-import Footer from './components/Footer';
 
-const theme = {
-  colors: {
-    heading: 'rgb(24 24 29)',
-    text: 'rgba(29 ,29, 29, .8)',
-    white: '#fff',
-    black: ' #212529',
-    helper: '#8490ff',
-
-    bg: '#F6F8FA',
-    footer_bg: '#0a1435',
-    btn: 'rgb(98 84 243)',
-    border: 'rgba(98, 84, 243, 0.5)',
-    hr: '#ffffff',
-    gradient:
-      'linear-gradient(0deg, rgb(132 144 255) 0%, rgb(98 189 252) 100%)',
-    shadow:
-      'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;',
-    shadowSupport: ' rgba(0, 0, 0, 0.16) 0px 1px 4px',
-  },
-  media: {
-    mobile: '768px',
-    tab: '998px',
-  },
-};
+import { cartItemPriceTotal } from './features/cart/cartSlice';
+import {
+  filterProducts,
+  loadFilterProducts,
+  sortingProducts,
+} from './features/filter/filterSlice';
+import { fetchProducts } from './features/product/productSlice';
 
 const App = () => {
+  const dispatch = useDispatch();
+  const { cart } = useSelector((store) => store.cart);
+  const { sorting_value, filters } = useSelector((store) => store.filter);
+  const { products } = useSelector((store) => store.product);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  useEffect(() => {
+    dispatch(cartItemPriceTotal());
+    localStorage.setItem('EchoCart', JSON.stringify(cart));
+  }, [cart]);
+
+  useEffect(() => {
+    dispatch(filterProducts());
+    dispatch(sortingProducts());
+  }, [products, sorting_value, filters]);
+
+  useEffect(() => {
+    dispatch(loadFilterProducts(products));
+  }, [products]);
+
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header />
-      <Routes>
+    <Routes>
+      <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
+        <Route path="products/:id" element={<SingleProduct />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="product/:id" element={<SingleProduct />} />
         <Route path="cart" element={<Cart />} />
         <Route path="*" element={<NoFoundRoute />} />
-      </Routes>
-      <Footer />
-    </ThemeProvider>
+      </Route>
+    </Routes>
   );
 };
 

@@ -1,16 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import FormatPrice from '../../components/FormatPrice';
+
+import FormatPrice from '../../components/utils/FormatPrice';
 import { Button } from '../../styles/Button';
 
 const ListView = ({ products }) => {
   return (
     <Wrapper className="section">
       <div className="container grid">
-        {products.map((curElem) => {
-          const { id, name, image, price, description } = curElem;
+        {products.map((item) => {
+          const { id, name, image, price, description } = item;
           return (
-            <div className="card grid grid-two-column">
+            <div key={id} className="card grid grid-two-column">
               <figure>
                 <img src={image} alt={name} />
               </figure>
@@ -22,7 +23,7 @@ const ListView = ({ products }) => {
                 </p>
                 <p>{description.slice(0, 90)}...</p>
 
-                <NavLink to={`/product/${id}`} className="btn-main">
+                <NavLink to={`/products/${id}`} className="btn-main">
                   <Button className="btn">Read More</Button>
                 </NavLink>
               </div>

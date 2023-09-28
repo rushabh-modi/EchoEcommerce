@@ -1,13 +1,14 @@
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import { Button } from "../styles/Button";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import {
   FaFacebook,
   FaGithub,
   FaInstagram,
   FaLinkedin,
   FaTwitter,
-} from "react-icons/fa";
+} from 'react-icons/fa';
+
+import { Button } from '../../styles/Button';
 
 const Footer = () => {
   return (
@@ -25,7 +26,7 @@ const Footer = () => {
                 <Button
                   className="btn hireme-btn"
                   onClick={() => {
-                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
                   }}
                 >
                   Contact Us
@@ -40,18 +41,18 @@ const Footer = () => {
           <div
             className="container grid grid-four-column"
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             <div className="footer-social">
               <h3
                 style={{
-                  color: "white",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  color: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
                 Rushabh Modi
@@ -111,14 +112,14 @@ const Footer = () => {
           <div
             className="footer-bottom--section"
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             <div className="container">
               <p>
-                Copyright ©️ {new Date().getFullYear()}{" "}
+                Copyright ©️ {new Date().getFullYear()}{' '}
                 <a href="mailto:rushabhmodi2552@gmail.com">
                   rushabhmodi2552@gmail.com
                 </a>

@@ -1,10 +1,12 @@
-import FormatPrice from '../../components/FormatPrice';
-import CartAmountToggle from './CartAmountToggle';
+import { useDispatch } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
-import useCartContext from '../../hooks/useCartContext';
+
+import { removeItem, setDecrease, setIncrease } from './cartSlice';
+import FormatPrice from '../../components/utils/FormatPrice';
+import CartAmountToggle from './CartAmountToggle';
 
 const CartItem = ({ id, name, image, color, price, amount }) => {
-  const { removeItem, setDecrease, setIncrease } = useCartContext();
+  const dispatch = useDispatch();
 
   return (
     <div className="cart_heading grid grid-five-column">
@@ -35,8 +37,8 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
       {/* Quantity  */}
       <CartAmountToggle
         amount={amount}
-        setDecrease={() => setDecrease(id)}
-        setIncrease={() => setIncrease(id)}
+        setDecrease={() => dispatch(setDecrease(id))}
+        setIncrease={() => dispatch(setIncrease(id))}
       />
 
       {/* //Subtotal */}
@@ -47,7 +49,10 @@ const CartItem = ({ id, name, image, color, price, amount }) => {
       </div>
 
       <div>
-        <FaTrash className="remove_icon" onClick={() => removeItem(id)} />
+        <FaTrash
+          className="remove_icon"
+          onClick={() => dispatch(removeItem(id))}
+        />
       </div>
     </div>
   );

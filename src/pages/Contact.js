@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import axios from 'axios';
+import styled from 'styled-components';
 import { BsCheck2Square } from 'react-icons/bs';
+
 import { Button } from '../styles/Button';
 
 const Contact = () => {

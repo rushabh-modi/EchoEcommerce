@@ -1,29 +1,34 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import useProductContext from '../hooks/useProductContext';
-import AddToCart from '../features/SingleProduct/AddToCart';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import PageNavigation from '../features/SingleProduct/PageNavigation';
-import MyImage from '../features/SingleProduct/MyImage';
-import { Container } from '../styles/Container';
-import FormatPrice from '../components/FormatPrice';
 import { MdSecurity } from 'react-icons/md';
 import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
-import Star from '../features/SingleProduct/Star';
-import { LoadingSpinner } from '../components/LoadingSpinner';
+
+import { fetchProductsById } from '../features/product/productSlice';
+import AddToCart from '../features/cart/AddToCart';
+import PageNavigation from '../features/product/PageNavigation';
+import MyImage from '../features/product/MyImage';
+import { Container } from '../styles/Container';
+import Star from '../features/product/Star';
+import FormatPrice from '../components/utils/FormatPrice';
+import { LoadingSpinner } from '../components/utils/LoadingSpinner';
 
 const API = process.env.REACT_APP_ECHO_API;
 
 const SingleProduct = () => {
-  const { getSingleProduct, isSingleLoading, singleProduct } =
-    useProductContext();
+  const dispatch = useDispatch();
+  const { isSingleLoading, singleProduct } = useSelector(
+    (store) => store.product
+  );
 
   const { id } = useParams();
 
   const {
-    id: alias,
+    id: aliasId,
     name,
     company,
     price,
@@ -35,8 +40,8 @@ const SingleProduct = () => {
   } = singleProduct;
 
   useEffect(() => {
-    getSingleProduct(`${API}?id=${id}`);
-  }, []);
+    dispatch(fetchProductsById(`${API}?id=${id}`));
+  }, [id]);
 
   if (isSingleLoading) {
     return (

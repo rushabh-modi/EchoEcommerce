@@ -1,15 +1,16 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import styled from 'styled-components';
 import { FiShoppingCart } from 'react-icons/fi';
 import { CgMenu, CgClose } from 'react-icons/cg';
-import useCartContext from '../hooks/useCartContext';
-import { useAuth0 } from '@auth0/auth0-react';
-import { Button } from '../styles/Button';
+
+import { Button } from '../../styles/Button';
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
-  const { total_item } = useCartContext();
+  const { total_item } = useSelector((store) => store.cart);
   const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
   return (

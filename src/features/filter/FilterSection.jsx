@@ -1,26 +1,36 @@
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import useFilterContext from '../../hooks/useFilterContext';
-import FormatPrice from '../../components/FormatPrice';
+
+import { clearFilters, updateFilterValue } from './filterSlice';
+import FormatPrice from '../../components/utils/FormatPrice';
 import { Button } from '../../styles/Button';
 
 const FilterSection = () => {
   const {
-    filters: { text, category, price, maxPrice, minPrice },
-    updateFilterValue,
+    filters: { text, category, company, price, maxPrice, minPrice },
     all_products,
-    clearFilters,
-  } = useFilterContext();
+  } = useSelector((store) => store.filter);
+  const dispatch = useDispatch();
+
+  const handleUpdateFilterValue = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    dispatch(updateFilterValue({ name, value }));
+  };
+
+  const handleCategoryButtonClick = (item) => {
+    dispatch(updateFilterValue({ name: 'category', value: item }));
+  };
 
   // get the unique values of each property
   const getUniqueData = (data, attr) => {
-    let newVal = data.map((curElem) => {
-      return curElem[attr];
+    let newVal = data.map((item) => {
+      return item[attr];
     });
 
     return (newVal = ['all', ...new Set(newVal)]);
   };
 
-  // we need to have the individual data of each in an array format
   const categoryData = getUniqueData(all_products, 'category');
   const companyData = getUniqueData(all_products, 'company');
 
@@ -34,7 +44,7 @@ const FilterSection = () => {
             placeholder="Search"
             autoComplete="off"
             value={text}
-            onChange={updateFilterValue}
+            onChange={handleUpdateFilterValue}
           />
         </form>
       </div>
@@ -42,17 +52,17 @@ const FilterSection = () => {
       <div className="filter-category">
         <h3>Category</h3>
         <div>
-          {categoryData.map((curElem, index) => {
+          {categoryData.map((item, index) => {
             return (
               <button
                 key={index}
                 type="button"
                 name="category"
-                value={curElem}
-                className={curElem === category ? 'active' : ''}
-                onClick={updateFilterValue}
+                value={item}
+                className={item === category ? 'active' : ''}
+                onClick={() => handleCategoryButtonClick(item)}
               >
-                {curElem}
+                {item}
               </button>
             );
           })}
@@ -67,12 +77,13 @@ const FilterSection = () => {
             name="company"
             id="company"
             className="filter-company--select"
-            onClick={updateFilterValue}
+            onChange={handleUpdateFilterValue}
+            value={company}
           >
-            {companyData.map((curElem, index) => {
+            {companyData.map((item, index) => {
               return (
-                <option key={index} value={curElem} name="company">
-                  {curElem}
+                <option key={index} value={item} name="company">
+                  {item}
                 </option>
               );
             })}
@@ -91,12 +102,12 @@ const FilterSection = () => {
           min={minPrice}
           max={maxPrice}
           value={price}
-          onChange={updateFilterValue}
+          onChange={handleUpdateFilterValue}
         />
       </div>
 
       <div className="filter-clear">
-        <Button className="btn" onClick={clearFilters}>
+        <Button className="btn" onClick={() => dispatch(clearFilters())}>
           Clear Filters
         </Button>
       </div>
