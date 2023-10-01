@@ -36,7 +36,7 @@ const SingleProduct = () => {
     stock,
     stars,
     reviews,
-    image,
+    images,
   } = singleProduct;
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const SingleProduct = () => {
         <div className="grid grid-two-column">
           {/* product Images  */}
           <div className="product_images">
-            <MyImage imgs={image} />
+            <MyImage imgs={images} />
           </div>
 
           {/* product data  */}

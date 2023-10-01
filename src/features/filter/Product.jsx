@@ -5,7 +5,12 @@ import FormatPrice from '../../components/utils/FormatPrice';
 const Product = (item) => {
   const { id, name, image, price, category } = item;
   return (
-    <NavLink to={`/products/${id}`}>
+    <NavLink
+      to={`/products/${id}`}
+      onClick={() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }}
+    >
       <div className="card">
         <figure>
           <img src={image} alt={name} />

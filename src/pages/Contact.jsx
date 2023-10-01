@@ -75,7 +75,7 @@ const Contact = () => {
               ref={messageRef}
             />
             <div className="submitted">
-              <Button type="submit">SEND</Button>
+              <Button type="submit">SEND🚀</Button>
               {isSubmitted && (
                 <h3>
                   <BsCheck2Square /> Form Submitted
@@ -93,6 +93,7 @@ const Wrapper = styled.section`
   padding: 9rem 0 5rem 0;
   text-align: center;
   font-size: 15px;
+
   .common-heading {
     margin-bottom: 3rem;
   }

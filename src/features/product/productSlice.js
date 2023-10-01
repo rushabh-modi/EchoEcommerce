@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API = 'https://api.pujakaitem.com/api/products';
+const API = process.env.REACT_APP_ECHO_API;
 
 const initialState = {
   isLoading: false,

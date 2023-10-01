@@ -5,16 +5,16 @@ import { BiLeftArrowAlt } from 'react-icons/bi';
 const PageNavigation = ({ title }) => {
   return (
     <Wrapper>
-      <NavLink to="/products">
-        <BiLeftArrowAlt className="nav-single" />
-        Products/{title}
+      <NavLink to="/products" className="nav-single">
+        <BiLeftArrowAlt className="icon" />
+        <span className="text">Products/{title}</span>
       </NavLink>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  height: 5rem;
+  height: 3rem;
   background-color: #ffffff;
   display: flex;
   justify-content: flex-start;
@@ -22,13 +22,26 @@ const Wrapper = styled.section`
   font-size: 2.2rem;
   padding-left: 1.2rem;
 
-  a {
-    font-size: 2.2rem;
-    color: inherit;
-  }
+  .nav-single {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.black};
+    transition: color 0.3s linear;
 
-  a:active {
-    outline: none;
+    .icon {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+
+    .text {
+      display: inline-block;
+    }
+
+    &:hover,
+    &:active {
+      color: ${({ theme }) => theme.colors.helper};
+    }
   }
 `;
 

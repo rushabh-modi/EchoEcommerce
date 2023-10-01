@@ -114,7 +114,6 @@ const Wrapper = styled.section`
       height: 100%;
       left: 0;
       top: 10%;
-      /* bottom: 10%; */
       background-color: rgba(81, 56, 238, 0.4);
     }
   }
