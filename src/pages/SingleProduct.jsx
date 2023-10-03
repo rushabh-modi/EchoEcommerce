@@ -17,8 +17,6 @@ import Star from '../features/product/Star';
 import FormatPrice from '../components/utils/FormatPrice';
 import { LoadingSpinner } from '../components/utils/LoadingSpinner';
 
-const API = process.env.REACT_APP_ECHO_API;
-
 const SingleProduct = () => {
   const dispatch = useDispatch();
   const { isSingleLoading, singleProduct } = useSelector(
@@ -40,7 +38,7 @@ const SingleProduct = () => {
   } = singleProduct;
 
   useEffect(() => {
-    dispatch(fetchProductsById(`${API}?id=${id}`));
+    dispatch(fetchProductsById(`${`/api/products`}?id=${id}`));
   }, [id]);
 
   if (isSingleLoading) {
