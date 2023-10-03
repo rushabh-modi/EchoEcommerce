@@ -5,6 +5,7 @@ This Application uses Auth0 for Authentication, API for products database. Redux
 ### Version 1.1 : [HERE!](https://echoecommerce-rushabh.netlify.app/)
 
 - Used Redux Toolkit for better state management
+- API integrated with the help of json-server. [API](https://github.com/rushabh-modi/EchoEcommerce-API) (v1.1.1)
 
 ### Version 1 :
 
