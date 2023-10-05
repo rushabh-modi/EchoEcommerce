@@ -28,13 +28,17 @@ const MainHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   position: relative;
+
   .logo {
     height: 5rem;
   }
+
   h2 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0.5rem 0 0 0.5rem;
+    font-weight: bold;
   }
+
   .logo-link {
     display: inline-flex;
     align-items: center;

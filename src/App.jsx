@@ -19,7 +19,7 @@ import {
   loadFilterProducts,
   sortingProducts,
 } from './features/filter/filterSlice';
-import { fetchProducts } from './features/product/productSlice';
+import { getProducts } from './features/product/productSlice';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const App = () => {
   const { products } = useSelector((store) => store.product);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(getProducts());
   }, []);
 
   useEffect(() => {
@@ -48,10 +48,10 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="products" element={<Products />} />
-        <Route path="products/:id" element={<SingleProduct />} />
+        <Route path="products/:productId" element={<SingleProduct />} />
         <Route path="contact" element={<Contact />} />
         <Route path="cart" element={<Cart />} />
         <Route path="*" element={<NoFoundRoute />} />

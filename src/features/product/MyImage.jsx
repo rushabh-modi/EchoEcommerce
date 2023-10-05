@@ -23,7 +23,7 @@ const MyImage = ({ imgs = [{ url: '' }] }) => {
       {/* 2nd column  */}
 
       <div className="main-screen">
-        <img src={mainImage.url} alt={mainImage.filename} />
+        <img src={imgs[0].url} alt={mainImage.filename} />
       </div>
     </Wrapper>
   );

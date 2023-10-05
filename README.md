@@ -1,11 +1,17 @@
 # EchoEcommerce
 
-This Application uses Auth0 for Authentication, API for products database. Redux Toolkit for state management. This project is based on Frontend technologies.
+This Application is made using React, Redux Toolkit for state management, Styled components for styling, Context API for Authentication, Stripe API for payment gateway. This project is based on Frontend technologies.
 
-### Version 1.1 : [HERE!](https://echoecommerce-rushabh.netlify.app/)
+### Version 1.2 : [HERE!](https://echoecommerce-rushabh.netlify.app/)
+
+- Context API for Authentication
+- Used Stripe for dummy payment Integration
+- Now uses static data for products
+
+### Version 1.1 :
 
 - Used Redux Toolkit for better state management
-- API integrated with the help of json-server. [API](https://github.com/rushabh-modi/EchoEcommerce-API) (v1.1.1)
+- API integrated with the help of json-server.
 
 ### Version 1 :
 

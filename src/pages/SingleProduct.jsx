@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,25 +5,26 @@ import styled from 'styled-components';
 import { MdSecurity } from 'react-icons/md';
 import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
 
-import { fetchProductsById } from '../features/product/productSlice';
+import { getProductsById } from '../features/product/productSlice';
 import AddToCart from '../features/cart/AddToCart';
 import PageNavigation from '../features/product/PageNavigation';
 import MyImage from '../features/product/MyImage';
 import { Container } from '../styles/Container';
 import Star from '../features/product/Star';
 import FormatPrice from '../components/utils/FormatPrice';
-import { LoadingSpinner } from '../components/utils/LoadingSpinner';
 
 const SingleProduct = () => {
   const dispatch = useDispatch();
-  const { isSingleLoading, singleProduct } = useSelector(
-    (store) => store.product
-  );
+  const { singleProduct } = useSelector((store) => store.product);
 
-  const { id } = useParams();
+  const { productId } = useParams();
+
+  useEffect(() => {
+    dispatch(getProductsById(productId));
+  }, [dispatch, productId]);
 
   const {
-    id: aliasId,
+    id,
     name,
     company,
     price,
@@ -36,18 +34,6 @@ const SingleProduct = () => {
     reviews,
     images,
   } = singleProduct;
-
-  useEffect(() => {
-    dispatch(fetchProductsById(`${`/api/products`}?id=${id}`));
-  }, [id]);
-
-  if (isSingleLoading) {
-    return (
-      <div className="page_loading">
-        <LoadingSpinner />
-      </div>
-    );
-  }
 
   return (
     <Wrapper>
@@ -101,7 +87,7 @@ const SingleProduct = () => {
                 <span> {stock > 0 ? 'In Stock' : 'Not Available'}</span>
               </p>
               <p>
-                ID : <span> {id} </span>
+                Id : <span> {id} </span>
               </p>
               <p>
                 Brand :<span> {company} </span>
@@ -178,7 +164,6 @@ const Wrapper = styled.section`
     hr {
       max-width: 100%;
       width: 90%;
-      /* height: 0.2rem; */
       border: 0.1rem solid #000;
       color: red;
     }

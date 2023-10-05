@@ -1,17 +1,31 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiShoppingCart } from 'react-icons/fi';
-import { CgMenu, CgClose } from 'react-icons/cg';
+import { CgMenu, CgClose, CgProfile } from 'react-icons/cg';
 
 import { Button } from '../../styles/Button';
+import useAuth from '../../hooks/useAuth';
+import Login from '../utils/Login';
+import {
+  closeLoginModal,
+  openLoginModal,
+} from '../../features/modal/modalSlice';
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
   const { total_item } = useSelector((store) => store.cart);
-  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+  const { isOpen } = useSelector((store) => store.modal);
+  const dispatch = useDispatch();
+  const { auth, setAuth } = useAuth();
+  const navigate = useNavigate();
+
+  const signout = async () => {
+    await setAuth({});
+    dispatch(closeLoginModal());
+    navigate('/');
+  };
 
   return (
     <Wrapper>
@@ -20,7 +34,7 @@ const Nav = () => {
           <li>
             <NavLink
               to="/"
-              className="navbar-link "
+              className="navbar-link"
               onClick={() => setMenuIcon(false)}
             >
               Home
@@ -29,7 +43,7 @@ const Nav = () => {
           <li>
             <NavLink
               to="/about"
-              className="navbar-link "
+              className="navbar-link"
               onClick={() => setMenuIcon(false)}
             >
               About
@@ -38,7 +52,7 @@ const Nav = () => {
           <li>
             <NavLink
               to="/products"
-              className="navbar-link "
+              className="navbar-link"
               onClick={() => setMenuIcon(false)}
             >
               Products
@@ -54,44 +68,21 @@ const Nav = () => {
             </NavLink>
           </li>
 
-          {/* user's profile picture after login successfull  */}
-          {isAuthenticated && (
-            <div className="cart-user--profile">
-              <img
-                className="img"
-                src={user.picture}
-                alt="User pic"
-                style={{
-                  borderRadius: '50px',
-                  width: '40px',
-                  marginRight: '-40px',
-                }}
-              />
+          {auth?.user && (
+            <div className="user__profile">
+              <CgProfile className="icon" />
+              <span className="text">{auth?.user}</span>
             </div>
           )}
 
-          {/* User's name after login successfull*/}
-          {isAuthenticated && <p>{user.name}</p>}
-
-          {isAuthenticated ? (
-            <li>
-              <Button
-                onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
-                }
-              >
-                Log Out
-              </Button>
-            </li>
+          {auth?.user ? (
+            <Button onClick={signout}>Log out</Button>
           ) : (
-            <li>
-              <Button onClick={() => loginWithRedirect()}>Log In</Button>
-            </li>
+            <>
+              <Button onClick={() => dispatch(openLoginModal())}>Log in</Button>
+              {isOpen && <Login />}
+            </>
           )}
-
-          {/* Login button */}
-
-          {/* LogOut button */}
 
           <li>
             <NavLink to="/cart" className="navbar-link cart-trolley--link">
@@ -140,6 +131,25 @@ const Wrapper = styled.nav`
       &:hover,
       &:active {
         color: ${({ theme }) => theme.colors.helper};
+      }
+    }
+
+    .user__profile {
+      display: flex;
+      align-items: center;
+      text-decoration: underline;
+      transition: color 0.3s linear;
+      gap: 4px;
+
+      .icon {
+        width: 2.5em;
+        height: 2.5em;
+      }
+
+      .text {
+        font-size: 1.8rem;
+        display: inline-block;
+        text-transform: capitalize;
       }
     }
   }

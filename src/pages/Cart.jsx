@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js';
+import StripeButton from '../components/utils/StripeButton';
 
 import { clearCart } from '../features/cart/cartSlice';
 import CartItem from '../features/cart/CartItem';
@@ -64,32 +64,7 @@ const Cart = () => {
 
             <hr />
 
-            <PayPalScriptProvider
-              options={{
-                'client-id':
-                  'AYTy3tCf94SiWOyjALTynopIpDuvx--MyCTUm-1pxBX0eRMpK9lTldjXrBnEHZiHmZSkgpu6IgqHKfyG',
-              }}
-            >
-              <PayPalButtons
-                createOrder={(data, actions) => {
-                  return actions.order.create({
-                    purchase_units: [
-                      {
-                        amount: {
-                          value: total_price,
-                        },
-                      },
-                    ],
-                  });
-                }}
-                onApprove={(data, actions) => {
-                  return actions.order.capture().then((details) => {
-                    const name = details.payer.name.given_name;
-                    alert(`Transaction completed by ${name}`);
-                  });
-                }}
-              />
-            </PayPalScriptProvider>
+            <StripeButton price={total_price} />
           </div>
         </div>
       </div>

@@ -2,14 +2,9 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import Product from '../filter/Product';
-import { LoadingSpinner } from '../../components/utils/LoadingSpinner';
 
 const FeatureProduct = () => {
-  const { isLoading, featureProducts } = useSelector((store) => store.product);
-
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
+  const { featureProducts } = useSelector((store) => store.product);
 
   return (
     <Wrapper className="section">

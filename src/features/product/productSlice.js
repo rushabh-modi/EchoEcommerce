@@ -1,63 +1,30 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from '../../api/axios';
+import { createSlice } from '@reduxjs/toolkit';
+import productsDB from '../../productsDB';
 
 const initialState = {
-  isLoading: false,
-  isError: false,
   products: [],
   featureProducts: [],
-  isSingleLoading: false,
   singleProduct: {},
 };
-
-export const fetchProducts = createAsyncThunk(
-  'product/fetchProductsStatus',
-  async () => {
-    const responce = await axios.get('/api/products');
-    return responce.data;
-  }
-);
-
-export const fetchProductsById = createAsyncThunk(
-  'product/fetchProductsByIdStatus',
-  async (url) => {
-    const responce = await axios.get(url);
-    return responce.data;
-  }
-);
 
 const productSlice = createSlice({
   name: 'product',
   initialState,
-  extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state) => {
-      state.isLoading = true;
-      state.isError = false;
-    });
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.products = action.payload;
-      state.featureProducts = action.payload.filter((item) => {
+  reducers: {
+    getProducts: (state, action) => {
+      state.products = productsDB;
+      state.featureProducts = productsDB.filter((item) => {
         return item.featured === true;
       });
-    });
-    builder.addCase(fetchProducts.rejected, (state) => {
-      state.isLoading = false;
-      state.isSingleLoading = true;
-    });
-    builder.addCase(fetchProductsById.pending, (state) => {
-      state.isSingleLoading = true;
-      state.isError = false;
-    });
-    builder.addCase(fetchProductsById.fulfilled, (state, action) => {
-      state.isSingleLoading = false;
-      state.singleProduct = action.payload;
-    });
-    builder.addCase(fetchProductsById.rejected, (state) => {
-      state.isSingleLoading = false;
-      state.isError = true;
-    });
+    },
+    getProductsById: (state, action) => {
+      state.singleProduct = productsDB.find(
+        (item) => item.id === action.payload
+      );
+    },
   },
 });
 
 export default productSlice.reducer;
+
+export const { getProducts, getProductsById } = productSlice.actions;
