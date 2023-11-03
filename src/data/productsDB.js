@@ -445,13 +445,13 @@ const productsDB = [
     reviews: 23,
     stars: 4.6,
     image:
-      'https://github.com/rushabh-modi/Media/assets/109070924/c61810a1-8081-4a3a-831b-6697ebc66429',
+      'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcToyxTrczB8FOpNGVHkt7tQ1uLyktN8sGBdaP4ierK5_f02sQgfJerbFDzniItC9ZikLhQ9ePl1FrQ2A-4IzGTJmofu1H1C1jB7oXvgZeoXbqSMWd3gQdagjxdCruUoyjZ-9Q7Kwa_QZ-g&usqp=CAc',
     images: [
       {
         id: 'awa1',
         width: 1080,
         height: 650,
-        url: 'https://github.com/rushabh-modi/Media/assets/109070924/c61810a1-8081-4a3a-831b-6697ebc66429',
+        url: 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcToyxTrczB8FOpNGVHkt7tQ1uLyktN8sGBdaP4ierK5_f02sQgfJerbFDzniItC9ZikLhQ9ePl1FrQ2A-4IzGTJmofu1H1C1jB7oXvgZeoXbqSMWd3gQdagjxdCruUoyjZ-9Q7Kwa_QZ-g&usqp=CAc',
         filename: 'prod-1.png',
         size: 1080,
         type: 'image/png',
