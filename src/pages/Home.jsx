@@ -6,7 +6,7 @@ import FeatureProducts from '../features/product/FeatureProducts';
 const Home = () => {
   return (
     <>
-      <MainSection />;
+      <MainSection />
       <FeatureProducts />
       <Services />
       <Trusted />

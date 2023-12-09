@@ -1,9 +1,9 @@
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../context/AuthProvider';
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import { closeLoginModal } from '../../features/modal/modalSlice';
+import { closeLoginModal } from '../../redux/slices/modalSlice';
 import { Button } from '../../styles/Button';
 
 export default function Login() {
@@ -124,7 +124,7 @@ const Wrapper = styled.section`
   input[type='password'],
   button {
     font-size: 18px;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     width: 100%;
     margin-top: 0.25rem;

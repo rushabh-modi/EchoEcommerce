@@ -1,13 +1,9 @@
-import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { BlurhashCanvas } from 'react-blurhash';
 
 import { Button } from '../../styles/Button';
 
 const MainSection = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <Wrapper>
       <div className="container">
@@ -28,21 +24,10 @@ const MainSection = () => {
           {/* our homepage image */}
           <div className="main-section-image">
             <figure>
-              <div style={{ display: !imageLoaded ? 'inline' : 'none' }}>
-                <BlurhashCanvas
-                  hash="LjRVa{t7.TRj-=f+S1n%u5WAVXbI"
-                  width="560"
-                  height="400"
-                />
-              </div>
               <img
-                src="https://user-images.githubusercontent.com/109070924/236439782-57d0637f-c3bb-4589-8106-0f33678ad94d.jpg"
+                src="/images/home.jpg"
                 alt="home-img"
                 className="img-style"
-                style={{ display: imageLoaded ? 'inline' : 'none' }}
-                onLoad={() => {
-                  setImageLoaded(true);
-                }}
               />
             </figure>
           </div>

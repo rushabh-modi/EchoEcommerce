@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { MdSecurity } from 'react-icons/md';
 import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
 
-import { getProductsById } from '../features/product/productSlice';
+import { getProductsById } from '../redux/slices/productSlice';
 import AddToCart from '../features/cart/AddToCart';
 import PageNavigation from '../features/product/PageNavigation';
 import MyImage from '../features/product/MyImage';

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
 import styled from 'styled-components';
 
-import { addToCart } from './cartSlice';
+import { addToCart } from '../../redux/slices/cartSlice';
 import CartAmountToggle from './CartAmountToggle';
 import { Button } from '../../styles/Button';
 

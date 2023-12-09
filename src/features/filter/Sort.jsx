@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { BsFillGridFill, BsList } from 'react-icons/bs';
 
-import { setGridView, setListView, sorting } from './filterSlice';
+import {
+  setGridView,
+  setListView,
+  sorting,
+} from '../../redux/slices/filterSlice';
 
 const Sort = () => {
   const { filter_products, grid_view } = useSelector((store) => store.filter);

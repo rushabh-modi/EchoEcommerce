@@ -12,14 +12,13 @@ import Contact from './pages/Contact';
 import SingleProduct from './pages/SingleProduct';
 import Cart from './pages/Cart';
 import NoFoundRoute from './pages/NoFoundRoute';
-
-import { cartItemPriceTotal } from './features/cart/cartSlice';
+import { cartItemPriceTotal } from './redux/slices/cartSlice';
 import {
   filterProducts,
   loadFilterProducts,
   sortingProducts,
-} from './features/filter/filterSlice';
-import { getProducts } from './features/product/productSlice';
+} from './redux/slices/filterSlice';
+import { getProducts } from './redux/slices/productSlice';
 
 const App = () => {
   const dispatch = useDispatch();

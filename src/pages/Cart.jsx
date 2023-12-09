@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import StripeButton from '../components/utils/StripeButton';
 
-import { clearCart } from '../features/cart/cartSlice';
+import { clearCart } from '../redux/slices/cartSlice';
 import CartItem from '../features/cart/CartItem';
 import { Button } from '../styles/Button';
 import FormatPrice from '../components/utils/FormatPrice';

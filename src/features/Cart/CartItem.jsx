@@ -1,7 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { FaTrash } from 'react-icons/fa';
 
-import { removeItem, setDecrease, setIncrease } from './cartSlice';
+import {
+  removeItem,
+  setDecrease,
+  setIncrease,
+} from '../../redux/slices/cartSlice';
 import FormatPrice from '../../components/utils/FormatPrice';
 import CartAmountToggle from './CartAmountToggle';
 

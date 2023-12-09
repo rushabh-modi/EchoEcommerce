@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { clearFilters, updateFilterValue } from './filterSlice';
+import {
+  clearFilters,
+  updateFilterValue,
+} from '../../redux/slices/filterSlice';
 import FormatPrice from '../../components/utils/FormatPrice';
 import { Button } from '../../styles/Button';
 

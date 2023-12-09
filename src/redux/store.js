@@ -1,7 +1,7 @@
-import productReducer from '../features/product/productSlice';
-import filterReducer from '../features/filter/filterSlice';
-import cartReducer from '../features/cart/cartSlice';
-import modalReducer from '../features/modal/modalSlice';
+import productReducer from './slices/productSlice';
+import filterReducer from './slices/filterSlice';
+import cartReducer from './slices/cartSlice';
+import modalReducer from './slices/modalSlice';
 
 const { configureStore } = require('@reduxjs/toolkit');
 

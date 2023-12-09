@@ -1,4 +1,4 @@
-const { createContext, useState } = require('react');
+const { createContext, useState, useContext } = require('react');
 
 const AuthContext = createContext({});
 
@@ -12,4 +12,6 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export default AuthContext;
+export default function useAuth() {
+  return useContext(AuthContext);
+}

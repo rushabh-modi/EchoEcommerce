@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import productsDB from '../../data/productsDB';
+import products from '../../data/products';
 
 const initialState = {
   products: [],
@@ -12,15 +12,13 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     getProducts: (state, action) => {
-      state.products = productsDB;
-      state.featureProducts = productsDB.filter((item) => {
+      state.products = products;
+      state.featureProducts = products.filter((item) => {
         return item.featured === true;
       });
     },
     getProductsById: (state, action) => {
-      state.singleProduct = productsDB.find(
-        (item) => item.id === action.payload
-      );
+      state.singleProduct = products.find((item) => item.id === action.payload);
     },
   },
 });

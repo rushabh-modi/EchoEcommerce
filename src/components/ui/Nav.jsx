@@ -6,12 +6,9 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { CgMenu, CgClose, CgProfile } from 'react-icons/cg';
 
 import { Button } from '../../styles/Button';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../../context/AuthProvider';
 import Login from '../utils/Login';
-import {
-  closeLoginModal,
-  openLoginModal,
-} from '../../features/modal/modalSlice';
+import { closeLoginModal, openLoginModal } from '../../redux/slices/modalSlice';
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();

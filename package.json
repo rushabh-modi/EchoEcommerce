@@ -1,6 +1,6 @@
 {
   "name": "echoecommerce",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "repository": {
     "url": "https://github.com/rushabh-modi/EchoEcommerce",
@@ -9,9 +9,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.5.1",
-    "blurhash": "^2.0.5",
     "react": "^18.2.0",
-    "react-blurhash": "^0.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.3",
