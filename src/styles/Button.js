@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from './index';
 
 export const Button = styled.button`
   text-decoration: none;

@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { MdSecurity } from 'react-icons/md';
 import { TbTruckDelivery, TbReplace } from 'react-icons/tb';
 
+import { styled } from '../styles';
 import { getProductsById } from '../redux/slices/productSlice';
 import AddToCart from '../features/cart/AddToCart';
 import PageNavigation from '../features/product/PageNavigation';
@@ -12,10 +12,11 @@ import MyImage from '../features/product/MyImage';
 import { Container } from '../styles/Container';
 import Star from '../features/product/Star';
 import FormatPrice from '../components/utils/FormatPrice';
+import { useProduct } from '../redux/store';
 
 const SingleProduct = () => {
   const dispatch = useDispatch();
-  const { singleProduct } = useSelector((store) => store.product);
+  const { singleProduct } = useProduct();
 
   const { productId } = useParams();
 

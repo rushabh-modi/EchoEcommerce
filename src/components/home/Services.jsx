@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-
 import { TbTruckDelivery } from 'react-icons/tb';
 import { MdSecurity } from 'react-icons/md';
 import { GiReceiveMoney } from 'react-icons/gi';
 import { RiSecurePaymentLine } from 'react-icons/ri';
+
+import { styled } from '../../styles';
 
 const Services = () => {
   return (

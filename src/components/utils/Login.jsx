@@ -1,10 +1,11 @@
-import useAuth from '../../context/AuthProvider';
 import { useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
+
+import useAuth from '../../context/AuthProvider';
 import { closeLoginModal } from '../../redux/slices/modalSlice';
 import { Button } from '../../styles/Button';
+import { styled } from '../../styles';
 
 export default function Login() {
   const dispatch = useDispatch();

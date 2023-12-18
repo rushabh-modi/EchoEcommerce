@@ -1,4 +1,3 @@
-import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 
 export default function StripeButton({ price }) {
@@ -7,7 +6,7 @@ export default function StripeButton({ price }) {
     'pk_test_51N0pk4SJPzGbKI26NtWC2xoRS3xPyVCQRtUxx4Sw3pTLaChs4swz0q9Wm0VW1PdHbQh7TOzYmdx7GnpL7W82ddNE00WTLQzw1L';
 
   const onToken = (token) => {
-    console.log(token);
+    // console.log(token);
     alert('dummy payment successfull');
   };
   return (

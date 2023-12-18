@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux';
-
 import GridView from './GridView';
 import ListView from './ListView';
+import { useFilter } from '../../redux/store';
 
 const ProductList = () => {
-  const { filter_products, grid_view } = useSelector((store) => store.filter);
+  const { filter_products, grid_view } = useFilter();
 
   if (grid_view === true) {
     return <GridView products={filter_products} />;

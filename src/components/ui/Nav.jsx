@@ -1,19 +1,21 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
 import { FiShoppingCart } from 'react-icons/fi';
 import { CgMenu, CgClose, CgProfile } from 'react-icons/cg';
 
+import { styled } from '../../styles';
 import { Button } from '../../styles/Button';
 import useAuth from '../../context/AuthProvider';
 import Login from '../utils/Login';
 import { closeLoginModal, openLoginModal } from '../../redux/slices/modalSlice';
+import { useCart, useModal } from '../../redux/store';
 
 const Nav = () => {
   const [menuIcon, setMenuIcon] = useState();
-  const { total_item } = useSelector((store) => store.cart);
-  const { isOpen } = useSelector((store) => store.modal);
+  const { total_item } = useCart();
+  const { isOpen } = useModal();
+
   const dispatch = useDispatch();
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();

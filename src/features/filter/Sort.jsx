@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { styled } from '../../styles';
 import { BsFillGridFill, BsList } from 'react-icons/bs';
 
 import {
@@ -7,9 +7,10 @@ import {
   setListView,
   sorting,
 } from '../../redux/slices/filterSlice';
+import { useFilter } from '../../redux/store';
 
 const Sort = () => {
-  const { filter_products, grid_view } = useSelector((store) => store.filter);
+  const { filter_products, grid_view } = useFilter();
   const dispatch = useDispatch();
 
   const handleSorted = (e) => {

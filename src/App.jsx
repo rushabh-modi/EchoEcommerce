@@ -1,8 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Layout from './components/ui/Layout';
 import Home from './pages/Home';
@@ -19,30 +17,31 @@ import {
   sortingProducts,
 } from './redux/slices/filterSlice';
 import { getProducts } from './redux/slices/productSlice';
+import { useCart, useFilter, useProduct } from './redux/store';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { cart } = useSelector((store) => store.cart);
-  const { sorting_value, filters } = useSelector((store) => store.filter);
-  const { products } = useSelector((store) => store.product);
+  const { cart } = useCart();
+  const { sorting_value, filters } = useFilter();
+  const { products } = useProduct();
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(cartItemPriceTotal());
     localStorage.setItem('EchoCart', JSON.stringify(cart));
-  }, [cart]);
+  }, [cart, dispatch]);
 
   useEffect(() => {
     dispatch(filterProducts());
     dispatch(sortingProducts());
-  }, [products, sorting_value, filters]);
+  }, [products, sorting_value, filters, dispatch]);
 
   useEffect(() => {
     dispatch(loadFilterProducts(products));
-  }, [products]);
+  }, [dispatch, products]);
 
   return (
     <Routes>

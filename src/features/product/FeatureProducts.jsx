@@ -1,10 +1,9 @@
-import { useSelector } from 'react-redux';
-import styled from 'styled-components';
-
+import { styled } from '../../styles';
 import Product from '../filter/Product';
+import { useProduct } from '../../redux/store';
 
 const FeatureProduct = () => {
-  const { featureProducts } = useSelector((store) => store.product);
+  const { featureProducts } = useProduct();
 
   return (
     <Wrapper className="section">

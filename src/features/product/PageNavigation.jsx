@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 import { BiLeftArrowAlt } from 'react-icons/bi';
+
+import { styled } from '../../styles';
 
 const PageNavigation = ({ title }) => {
   return (

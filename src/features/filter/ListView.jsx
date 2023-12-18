@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 
+import { styled } from '../../styles';
 import FormatPrice from '../../components/utils/FormatPrice';
 import { Button } from '../../styles/Button';
 

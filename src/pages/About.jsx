@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 
+import { styled } from '../styles';
 import { Button } from '../styles/Button';
 
 const About = () => {

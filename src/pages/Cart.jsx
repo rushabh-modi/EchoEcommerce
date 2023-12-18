@@ -1,16 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import StripeButton from '../components/utils/StripeButton';
 
+import { styled } from '../styles';
+import StripeButton from '../components/utils/StripeButton';
 import { clearCart } from '../redux/slices/cartSlice';
 import CartItem from '../features/cart/CartItem';
 import { Button } from '../styles/Button';
 import FormatPrice from '../components/utils/FormatPrice';
+import { useCart } from '../redux/store';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const { cart, total_price } = useSelector((store) => store.cart);
+  const { cart, total_price } = useCart();
 
   if (!cart || cart.length === 0) {
     return (

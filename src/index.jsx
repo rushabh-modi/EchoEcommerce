@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
 
 import { AuthProvider } from './context/AuthProvider';
-import store from './redux/store';
 import App from './App';
+import StoreProvider from './redux/StoreProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <StoreProvider>
       <BrowserRouter>
         <AuthProvider>
           <Routes>
@@ -19,6 +18,6 @@ root.render(
           </Routes>
         </AuthProvider>
       </BrowserRouter>
-    </Provider>
+    </StoreProvider>
   </React.StrictMode>
 );

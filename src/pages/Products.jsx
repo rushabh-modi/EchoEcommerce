@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import { styled } from '../styles';
 import FilterSection from '../features/filter/FilterSection';
 import ProductList from '../features/filter/ProductList';
 import Sort from '../features/filter/Sort';

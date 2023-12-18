@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { FaCheck } from 'react-icons/fa';
-import styled from 'styled-components';
 
+import { styled } from '../../styles';
 import { addToCart } from '../../redux/slices/cartSlice';
 import CartAmountToggle from './CartAmountToggle';
 import { Button } from '../../styles/Button';

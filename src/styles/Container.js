@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from './index';
 
 export const Container = styled.div`
   width: 100%;

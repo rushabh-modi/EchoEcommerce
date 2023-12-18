@@ -1,18 +1,19 @@
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
 
+import { styled } from '../../styles';
 import {
   clearFilters,
   updateFilterValue,
 } from '../../redux/slices/filterSlice';
 import FormatPrice from '../../components/utils/FormatPrice';
 import { Button } from '../../styles/Button';
+import { useFilter } from '../../redux/store';
 
 const FilterSection = () => {
   const {
     filters: { text, category, company, price, maxPrice, minPrice },
     all_products,
-  } = useSelector((store) => store.filter);
+  } = useFilter();
   const dispatch = useDispatch();
 
   const handleUpdateFilterValue = (e) => {
